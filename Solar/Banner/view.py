@@ -7,7 +7,7 @@ from Solar.bunny import obj_storage
 import os
 from werkzeug.utils import secure_filename
 
-Banner=Blueprint('Banner',__name__,template_folder='templates/Banner',static_folder='')
+Banner=Blueprint('Banner',__name__,template_folder='templates/banner',static_folder='')
 
 @Banner.before_request
 @login_required
