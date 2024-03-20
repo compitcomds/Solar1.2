@@ -1,0 +1,14 @@
+{% extends 'Admin_base.html' %}
+{% block content %}
+<h1 class="text-dark">Update Blog</h1>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.heading.label }} {{ form.heading(type="text", class="container row center-form col-lg-12 form-control") }}<br>
+    {{ form.para1.label }} {{ form.para1(class="container row center-form col-lg-12 form-control", rows="3") }}<br>
+    {{ form.para2.label }} {{ form.para2(class="container row center-form col-lg-12 form-control", rows="3") }}<br>
+    {{ form.para3.label }} {{ form.para3(class="container row center-form col-lg-12 form-control", rows="3") }}<br>
+    {{ form.para4.label }} {{ form.para4(class="container row center-form col-lg-12 form-control", rows="3") }}<br>
+    {{ form.para5.label }} {{ form.para5(class="container row center-form col-lg-12 form-control", rows="3") }}<br>
+    {{ form.submit(class="btn btn-success") }}
+</form>
+{% endblock %}

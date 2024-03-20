@@ -1,0 +1,83 @@
+{% extends "Admin_base.html" %}
+{% block content %}
+
+<div class="row">
+    <div class="col-xl-3 col-lg-6 col-md-12 col-sm-12">
+        <div class="card shadow mb-4">
+            <!-- Card Header - Dropdown -->
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Image 1</h6>
+            </div>
+            {% set my_variable = 'https://'+data['photos1'] %}
+
+            <!-- Card Body -->
+            <div class="card-body">
+                <div class="chart-pie pt-4">
+                    <img src="{{my_variable}}" class="img-fluid">
+                </div>
+                <hr>
+                <a class="btn btn-success btn-block" href="{{url_for('Admin.changeimage',product_id_mongo=data['_id'],image_name='photos1',product_id=data['product_id'])}}">Change</a>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-lg-6 col-md-12 col-sm-12">
+        <div class="card shadow mb-4">
+            <!-- Card Header - Dropdown -->
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Image 2</h6>
+            </div>
+            {% set my_variable = 'https://'+data['photos2'] %}
+
+            <!-- Card Body -->
+            <div class="card-body">
+                <div class="chart-pie pt-4">
+                    <img src="{{my_variable}}" class="img-fluid">
+                </div>
+                <hr>
+                <a class="btn btn-success btn-block" href="{{url_for('Admin.changeimage',product_id_mongo=data['_id'],image_name='photos2',product_id=data['product_id'])}}">Change</a>
+
+            </div>
+        </div>
+    </div><div class="col-xl-3 col-lg-6 col-md-12 col-sm-12">
+        <div class="card shadow mb-4">
+            <!-- Card Header - Dropdown -->
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Image 3</h6>
+            </div>
+            {% set my_variable = 'https://'+data['photos3'] %}
+
+            <!-- Card Body -->
+            <div class="card-body">
+                <div class="chart-pie pt-4">
+                    <img src="{{my_variable}}" class="img-fluid">
+                </div>
+                <hr>
+                <a class="btn btn-success btn-block" href="{{url_for('Admin.changeimage',product_id_mongo=data['_id'],image_name='photos3',product_id=data['product_id'])}}">Change</a>
+
+            </div>
+        </div>
+    </div><div class="col-xl-3 col-lg-6 col-md-12 col-sm-12">
+        <div class="card shadow mb-4">
+            <!-- Card Header - Dropdown -->
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Image 4</h6>
+            </div>
+            {% set my_variable = 'https://'+data['photos4'] %}
+
+            <!-- Card Body -->
+            <div class="card-body">
+                <div class="chart-pie pt-4">
+                    <img src="{{my_variable}}" class="img-fluid">
+                </div>
+                <hr>
+                <a class="btn btn-success btn-block" href="{{url_for('Admin.changeimage',product_id_mongo=data['_id'],image_name='photos4',product_id=data['product_id'])}}">Change</a>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<hr>
+{% endblock content %}

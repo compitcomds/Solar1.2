@@ -1,0 +1,59 @@
+{% extends "Admin_base.html" %}
+{% block content %}
+
+
+<div id="app" data-sub-id="{{ sub_id }}" data-get_data="{{ data['compare'] }}" data-get-main-id="{{ m }}">
+    <span class="item-id">
+    </span>
+
+    {%raw%}
+
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Comparison Parameter</h1>
+        <a href="#" class="btn btn-success btn-icon-split justify-content-end" @click="addItem">
+            <span class="icon text-white-50">
+                <i class="fa-solid fa-plus"></i>
+            </span>
+            <span class="text">Add New Parameter</span>
+        </a>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xl-3 col-md-6 mb-4" v-for="(item, index) in property" :key="index">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="col-auto">
+                                <div class="h4 font-weight-bold text-gray-900" v-if="!item.editMode">{{ item.name}}
+                                    <hr>
+                                    <a href="#" class="btn btn-success btn-block m-1 btn-sm" @click="toggleEditMode(item)">Edit</a>
+                                </div>
+                                <div v-else>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" v-model="item.name"
+                                            placeholder="Enter text" :value=item.name>
+                                        <div class="input-group-append">
+                                            <button class="btn btn-success" type="button"
+                                                @click="saveChanges(item)">Save</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <a href="#" class="btn btn-danger btn-block m-1 btn-sm" @click="removeItem(index)">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <button class="btn btn-success btn-lg" @click="save" :disabled="property.length === 0">Save</button>
+    {%endraw%}
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="{{ url_for('Admin.static', filename='app.js') }}"></script>
+
+    {% endblock content %}

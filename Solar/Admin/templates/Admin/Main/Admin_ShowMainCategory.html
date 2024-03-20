@@ -1,0 +1,94 @@
+{% extends "Admin_base.html" %} {% block content %}
+
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+  <h1 class="h3 mb-0 text-gray-800">Main Category</h1>
+  <a
+    href="#"
+    class="btn btn-success btn-icon-split justify-content-end"
+    onclick="window.location.href='{{url_for('Admin.add_main_category')}}'"
+  >
+    <span class="icon text-white-50">
+      <i class="fa-solid fa-plus"></i>
+    </span>
+    <span class="text">Add New Category </span>
+  </a>
+</div>
+
+<div class="row">
+  <!-- Earnings (Monthly) Card Example -->
+  {% for element in data %}
+<div class="col-xl-3 col-md-6 mb-4">
+  <div class="card border-left-primary shadow h-100 py-2">
+    <div class="card-body">
+      <div class="row no-gutters align-items-center">
+        <div class="col mr-2">
+          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+            {{ element._id }}
+          </div>
+          <div class="h5 mb-0 font-weight-bold text-gray-800">
+            {{ element.name }}
+          </div>
+        </div>
+
+        <div class="col-auto">
+          <button class="btn btn-danger btn-circle btn-circle"  data-toggle="modal" data-target="#logoutModal{{ element._id }}"  >
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>
+      
+      <div class="modal fade" id="logoutModal{{ element._id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Confirm Delete <b>{{element.name}}</b></h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Do you really want to delete this record? This process cannot be undone.</div>
+                <div class="modal-footer">
+                  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                  <button
+                  class="btn btn-google"
+                  onclick="window.location.href='{{url_for('Admin.delete_main_category',id=element['_id'])}}'">
+                  Delete
+                </button>
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+      </div>
+      <hr>
+
+      <div>
+        <a href="{{ url_for('Admin.ShowSubCategory', subcat=element._id) }}" class="m-1 btn btn-primary btn-icon-split">
+          <span class="icon text-white-50">
+            <i class="fa-solid fa-eye"></i>
+          </span>
+          <span class="text">View Subcategory</span>
+        </a>
+        <a href="#" class="m-1 btn btn-success btn-icon-split">
+          <span class="icon text-white-50">
+            <i class="fa-solid fa-pen-to-square"></i>
+          </span>
+          <span class="text">Edit</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+</div>
+
+
+
+
+
+{% endblock content %}
+
+
