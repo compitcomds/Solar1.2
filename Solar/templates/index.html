@@ -8,15 +8,17 @@
                         <div class="carousel-inner rounded-sm">
                                 {% if data_big_banner %}
                                 <div class=" carousel-item active"><a href="{{data_big_banner[0]['url']}}">
-                                        <img class="d-block  w-100 "
-                                                src="{{'https://'+ data_big_banner[0]['image_link'] }}"
-                                                alt="First slide" style="min-height:auto; max-height:450px;"></a>
+                                                <img class="d-block  w-100 "
+                                                        src="{{'https://'+ data_big_banner[0]['image_link'] }}"
+                                                        alt="First slide"
+                                                        style="min-height:auto; max-height:450px;"></a>
                                 </div>
                                 {% endif %}
                                 {% for element in data_big_banner[1:] %}
                                 <div class="carousel-item">
-                                        <a href="{{element['url']}}"><img class="d-block w-100 " src="{{'https://'+ element['image_link'] }}"
-                                                alt="Second slide" style="min-height:auto; max-height:450px;"></a>
+                                        <a href="{{element['url']}}"><img class="d-block w-100 "
+                                                        src="{{'https://'+ element['image_link'] }}" alt="Second slide"
+                                                        style="min-height:auto; max-height:450px;"></a>
                                 </div>
                                 {% endfor %}
                         </div>
@@ -43,8 +45,9 @@
                                         <div class="ss_eight ss_box_wbg wow fadeIn" data-wow-delay="0.2s"
                                                 data-wow-duration="1s">
                                                 <a href="{{element['url']}}">
-                                                <img class="img-fluid" src="{{'https://'+ element['image_link'] }}"
-                                                        alt="image" title="image" />
+                                                        <img class="img-fluid"
+                                                                src="{{'https://'+ element['image_link'] }}" alt="image"
+                                                                title="image" />
                                                 </a>
                                         </div>
                                 </div>
@@ -98,8 +101,8 @@
                         </div>
                         <div class="col-lg-6 align-self-center">
                                 <div class="ss_three_right wow fadeIn" data-wow-delay="0.1s">
-                                        <h3>Services</h3>
-                                        <h1>We provide awesome services</h1>
+                                        <h3>Products</h3>
+                                        <h1>We provide awesome products</h1>
                                         <p style="padding-bottom: 20px;">“We offer exceptional services that exceed
                                                 expectations and
                                                 leave our clients satisfied. Our commitment to excellence drives us to
@@ -111,7 +114,7 @@
                                                 providing nothing less than the best. Our clients can trust us to
                                                 deliver on our promise of
                                                 awesome services, making their experience truly remarkable.”</p>
-                                        <a href="{{url_for('about')}}" class="ss_btn">More Services</a>
+                                        <a href="{{url_for('about')}}" class="ss_btn">Explorer</a>
                                 </div>
                         </div>
                 </div>
@@ -179,8 +182,7 @@
                                 {% for i in data_top_product %}
                                 {% if i %}
 
-                                <div class="swiper-slide" data-swiper-slide-index="0"
-                                       >
+                                <div class="swiper-slide" data-swiper-slide-index="0">
                                         <div class="ss_six_product wow fadeIn " data-wow-delay="0.1s"
                                                 data-wow-duration="2s"
                                                 style="visibility: hidden; animation-duration: 2s; animation-delay: 0.1s; animation-name: none;">
@@ -211,102 +213,29 @@
         </div>
 </section>
 
-<div class="ss_section_eight solar_partner_section wow fadeInUp" data-wow-delay="0.3s"
-        style="visibility: hidden; animation-delay: 0.3s; animation-name: none;">
-        <h3 class="ss_h3_center text-center">Our Clients</h3>
+<div class="ss_section_eight solar_partner_section wow fadeInUp" data-wow-delay="0.3s" style="visibility: hidden; animation-delay: 0.3s; animation-name: none;">
+        <h3 class="ss_h3_center text-center">Our Associates</h3>
         <h1 class="text-center">Partners</h1>
         <div class="container">
-                <div class="row">
-                        <div class="col-12">
-                                <!-- Swiper -->
-                                <div class="swiper-container swiper-container-horizontal">
-                                        <div class="swiper-wrapper"
-                                                style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
-                                                <div class="swiper-slide swiper-slide-duplicate swiper-slide-active"
-                                                        data-swiper-slide-index="5"
-                                                        style="width: 182px; margin-right: 50px;"><img
-                                                                src="https://stocksales.b-cdn.net/static%20content/assets2/images/testinomial 6.png"
-                                                                alt="solar-installation-partner-6">
-                                                </div>
-                                                <div class="swiper-slide swiper-slide-duplicate swiper-slide-next"
-                                                        data-swiper-slide-index="6"
-                                                        style="width: 182px; margin-right: 50px;"><img
-                                                                src="https://stocksales.b-cdn.net/static%20content/assets2/images/testinomial 7.png"
-                                                                alt="solar-installation-partner-7">
-                                                </div>
-                                                <div class="swiper-slide swiper-slide-duplicate"
-                                                        data-swiper-slide-index="7"
-                                                        style="width: 182px; margin-right: 50px;"><img
-                                                                src="https://stocksales.b-cdn.net/static%20content/assets2/images/testinomial 8.png"
-                                                                alt="solar-installation-partner-8">
-                                                </div>
-                                                <div class="swiper-slide" data-swiper-slide-index="0"
-                                                        style="width: 182px; margin-right: 50px;"><img
-                                                                src="https://stocksales.b-cdn.net/static%20content/assets2/images/testinomial 1.png"
-                                                                alt="solar-installation-partner1">
-                                                </div>
-                                                <div class="swiper-slide" data-swiper-slide-index="1"
-                                                        style="width: 182px; margin-right: 50px;"><img
-                                                                src="https://stocksales.b-cdn.net/static%20content/assets2/images/testinomial 2.png"
-                                                                alt="solar-installation-partner-2">
-                                                </div>
-                                                <div class="swiper-slide" data-swiper-slide-index="2"
-                                                        style="width: 182px; margin-right: 50px;"><img
-                                                                src="https://stocksales.b-cdn.net/static%20content/assets2/images/testinomial 3.png"
-                                                                alt="solar-installation-partner-3">
-                                                </div>
-                                                <div class="swiper-slide" data-swiper-slide-index="3"
-                                                        style="width: 182px; margin-right: 50px;"><img
-                                                                src="https://stocksales.b-cdn.net/static%20content/assets2/images/testinomial 4.png"
-                                                                alt="solar-installation-partner-4">
-                                                </div>
-                                                <div class="swiper-slide" data-swiper-slide-index="4"
-                                                        style="width: 182px; margin-right: 50px;"><img
-                                                                src="https://stocksales.b-cdn.net/static%20content/assets2/images/testinomial 5.png"
-                                                                alt="solar-installation-partner-5">
-                                                </div>
-                                                <div class="swiper-slide" data-swiper-slide-index="5"
-                                                        style="width: 182px; margin-right: 50px;"><img
-                                                                src="https://stocksales.b-cdn.net/static%20content/assets2/images/testinomial 6.png"
-                                                                alt="solar-installation-partner-6">
-                                                </div>
-                                                <div class="swiper-slide" data-swiper-slide-index="6"
-                                                        style="width: 182px; margin-right: 50px;"><img
-                                                                src="https://stocksales.b-cdn.net/static%20content/assets2/images/testinomial 7.png"
-                                                                alt="solar-installation-partner-7">
-                                                </div>
-                                                <div class="swiper-slide" data-swiper-slide-index="7"
-                                                        style="width: 182px; margin-right: 50px;"><img
-                                                                src="https://stocksales.b-cdn.net/static%20content/assets2/images/testinomial 8.png"
-                                                                alt="solar-installation-partner-8">
-                                                </div>
-                                                <div class="swiper-slide swiper-slide-duplicate"
-                                                        data-swiper-slide-index="0"
-                                                        style="width: 182px; margin-right: 50px;"><img
-                                                                src="https://stocksales.b-cdn.net/static%20content/assets2/images/testinomial 1.png"
-                                                                alt="solar-installation-partner1">
-                                                </div>
-                                                <div class="swiper-slide swiper-slide-duplicate"
-                                                        data-swiper-slide-index="1"
-                                                        style="width: 182px; margin-right: 50px;"><img
-                                                                src="https://stocksales.b-cdn.net/static%20content/assets2/images/testinomial 2.png"
-                                                                alt="solar-installation-partner-2">
-                                                </div>
-                                                <div class="swiper-slide swiper-slide-duplicate"
-                                                        data-swiper-slide-index="2"
-                                                        style="width: 182px; margin-right: 50px;"><img
-                                                                src="https://stocksales.b-cdn.net/static%20content/assets2/images/testinomial 3.png"
-                                                                alt="solar-installation-partner-3">
-                                                </div>
-                                        </div>
-                                        <span class="swiper-notification" aria-live="assertive"
-                                                aria-atomic="true"></span><span class="swiper-notification"
-                                                aria-live="assertive" aria-atomic="true"></span>
-                                </div>
+            <div class="row">
+                <div class="col-12">
+                    <!-- Swiper -->
+                    <div class="swiper-container swiper-container-horizontal">
+                        <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
+                            <div class="swiper-slide" data-swiper-slide-index="1" style="width: 400px; margin-right: 10px;"><img src="https://stocksales.b-cdn.net/static%20content/assets2/images/testinomial 3.png" alt="solar-installation-partner-3"></div>
+                            <div class="swiper-slide" data-swiper-slide-index="2" style="width: 400px; margin-right: 10px;"><img src="https://stocksales.b-cdn.net/static%20content/assets2/images/testinomial 4.png" alt="solar-installation-partner-4"></div>
+                            <div class="swiper-slide" data-swiper-slide-index="3" style="width: 400px; margin-right: 10px;"><img src="https://stocksales.b-cdn.net/static%20content/assets2/images/testinomial 5.png" alt="solar-installation-partner-5"></div>
+                            <div class="swiper-slide" data-swiper-slide-index="4" style="width: 400px; margin-right: 10px;"><img src="https://stocksales.b-cdn.net/static%20content/assets/images/partner%209.jpg" alt="solar-installation-partner-5"></div>
+                            <div class="swiper-slide" data-swiper-slide-index="5" style="width: 400px; margin-right: 10px;"><img src="https://stocksales.b-cdn.net/static%20content/assets/images/partner%2010.jpg" alt="solar-installation-partner-5"></div>
                         </div>
+                        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+                        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+                    </div>
                 </div>
+            </div>
         </div>
-</div>
+    </div>
+     
 
 <section class="ss_section_eight ss_section_sec_bg spacer_top spacer_bottom"> <!--===== Section Eight Start =====-->
         <div class="container-fluid">
