@@ -5,7 +5,7 @@ from flask_wtf.file import FileField, FileAllowed
 
 class UploadBlog(FlaskForm):
     heading = StringField('Enter the Heading', validators=[DataRequired()])
-    image =FileField("Upload an Image", validators=[DataRequired(),FileAllowed(['jpg','png' , 'jpeg'])])
+    image =FileField("Image (1200px X 700px)", validators=[DataRequired(),FileAllowed(['jpg','png' , 'jpeg'])])
     para1 = TextAreaField('Enter the para 1', validators=[DataRequired()])
     para2 = TextAreaField('Enter the para 2')
     para3 = TextAreaField('Enter the para 3')
