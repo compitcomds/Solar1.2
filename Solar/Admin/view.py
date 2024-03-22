@@ -58,9 +58,14 @@ def delete_main_category(id):
     db.MainCategory.delete_one( {"_id": ObjectId(id)})
     return redirect(url_for("Admin.ShowMainCategory"))
 
-@Admin.route("/editMainCategory",methods=['GET','POST'])
-def edit_main_category():
-    return 'edit_main_categories'
+@Admin.route("/editMainCategory/<string:id>",methods=['GET','POST'])
+def edit_main_category(id):
+    data=db.MainCategory.find_one({'_id':ObjectId(id)})
+    form=UplaodMainCategoriesForm(**data)
+    if form.validate_on_submit():
+        db.MainCategory.find_one_and_update({'_id':ObjectId(id)},{'$set':{'name':form.name.data}})
+        return redirect(url_for("Admin.ShowMainCategory"))
+    return render_template( "Main/Admin_addMainCategory.html" ,form = form )
 
 # Sub
 @Admin.route("/ShowSubCategory/<string:subcat>")
@@ -97,9 +102,14 @@ def delete_sub_category(id,subcat):
 
 
 
-@Admin.route("/editSubCategory",methods=['GET','POST'])
-def edit_sub_category():
-    return 'edit_sub_categories'
+@Admin.route("/editSubCategory/<string:id>/<string:main_id>",methods=['GET','POST'])
+def edit_sub_category(id,main_id):
+    data=db.SubCategory.find_one({'_id':ObjectId(id)})
+    form=UplaodSubCategoriesForm(**data)
+    if form.validate_on_submit():
+        db.SubCategory.find_one_and_update({'_id':ObjectId(id)},{'$set':{'name':form.name.data}})
+        return redirect(url_for('Admin.ShowSubCategory', subcat=main_id))
+    return render_template('Sub/Admin_addSubCategory.html',form=form)
 
 #product
 @Admin.route("/ShowProduct/<string:main_id>/<string:sub_id>")
