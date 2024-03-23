@@ -240,3 +240,16 @@ def blogDetails(blog_id):
         return render_template('blogDetails.html',data=data,related_data=related_data)
     except:
         abort(404)
+
+@app.route("/TermsAndCondition")
+def TermsAndCondition():
+    return render_template('TermsAndCondition.html')
+
+
+@app.route("/privacypolicy")
+def privacypolicy():
+    return render_template('privacypolicy.html')
+
+@app.route("/FAQ")
+def FAQ():
+    return render_template('FAQ.html')
