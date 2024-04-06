@@ -140,16 +140,24 @@
                                 <div class="ss_five_right wow fadeIn" data-wow-delay="0.1s">
                                         <h3>Exclusive Products</h3>
                                         <h1>We are here to give you the best solar panel for your home</h1>
-                                        <p style="padding-bottom: 20px;">We Are Here to Give You the Exclusive Products direct from
-                                                the factory outlet. “We understand the importance of product need of our customers. 
-                                                We provide a comprehensive overview of our product’s features and functionalities. 
-                                                During product selection, our experts walk you through the product interface,
-                                                demonstrate key workflows, and showcase real-world use cases. Whether you’re a
-                                                new user exploring our product or an existing customer looking to maximize its
-                                                potential, our product demo ensures that you gain valuable insights and hands-on
-                                                experience. Join us for an informative and interactive demo to unlock the full 
-                                                potential of our solution.” 
-</p>
+                                        <p style="padding-bottom: 20px;">We Are Here to Give You the Exclusive Products
+                                                direct from
+                                                the factory outlet. “We understand the importance of product need of our
+                                                customers.
+                                                We provide a comprehensive overview of our product’s features and
+                                                functionalities.
+                                                During product selection, our experts walk you through the product
+                                                interface,
+                                                demonstrate key workflows, and showcase real-world use cases. Whether
+                                                you’re a
+                                                new user exploring our product or an existing customer looking to
+                                                maximize its
+                                                potential, our product demo ensures that you gain valuable insights and
+                                                hands-on
+                                                experience. Join us for an informative and interactive demo to unlock
+                                                the full
+                                                potential of our solution.”
+                                        </p>
                                         <!-- <a href="#" class="ss_btn">Purchase Now</a> -->
                                 </div>
                         </div>
@@ -165,26 +173,25 @@
         </div>
 </section>
 
-<section class="ss_section_eight ss_section_sec_bg spacer_top spacer_bottom"> <!--===== Section Eight Start =====-->
+<section class=" ss_section_sec_bg spacer_top spacer_bottom"> <!--===== Section Eight Start =====-->
         <div class="container-fluid">
                 <h3 class="ss_h3_center text-center">Top Products</h3>
                 <h1 class="text-center mb-5">Most Sales</h1>
-                <div class="swiper-container swiper-container-horizontal">
-                        <div class="swiper-wrapper"
-                                style="transform: translate3d(-2516.67px, 0px, 0px); transition-duration: 0ms;">
-                                {% if data_top_product is iterable %}
-
-                                {% for i in data_top_product %}
-                                {% if i %}
-
-                                <div class="swiper-slide" data-swiper-slide-index="0">
-                                        <div class="ss_six_product wow fadeIn " data-wow-delay="0.1s"
-                                                data-wow-duration="2s"
-                                                style="visibility: hidden; animation-duration: 2s; animation-delay: 0.1s; animation-name: none;">
-                                                <a href="{{url_for('productdetails',prod_id=i['_id'])}}">
+                <div class="product_swiper" style="width: 100%; overflow:hidden">
+                        <div class="swiper-container swiper-container-horizontal">
+                                <div class="swiper-wrapper ">
+                                        {% if data_top_product is iterable %}
+                                        {% for i in data_top_product*2 %}
+                                        {% if i %}
+                                        <div class="col-lg-3 col-md-6 col-sm-6 swiper-slide"
+                                                data-swiper-slide-index="1">
+                                                <div class="ss_six_product wow fadeIn" data-wow-delay="0.3s"
+                                                        data-wow-duration="2s"
+                                                        style="visibility: visible; animation-duration: 2s; animation-delay: 0.3s; animation-name: fadeIn;">
                                                         <div class="ss_six_p_img ss_box_bg">
                                                                 <img class="img-fluid"
-                                                                        src="{{'https://'+ i['photos1'] }}" alt="image">
+                                                                        src="{{'https://'+ i['photos1'] }}" alt="image"
+                                                                        title="image">
                                                         </div>
                                                         <div class="ss_product_content ss_box_bg">
                                                                 <h2 style="font-size:x-large;">
@@ -194,43 +201,88 @@
                                                                         <p class="pt-2">₹{{i['price']}}</p>
                                                                 </b>
                                                         </div>
-                                                </a>
+                                                </div>
                                         </div>
                                         {% endif %}
-
+                                        {% endfor %}
+                                        {% endif %}
                                 </div>
-                                {% endfor %}
-                                {% endif %}
-
                         </div>
-                        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
                 </div>
         </div>
 </section>
 
-<div class="ss_section_eight solar_partner_section wow fadeInUp" data-wow-delay="0.3s" style="visibility: hidden; animation-delay: 0.3s; animation-name: none;">
-<!--         <h3 class="ss_h3_center text-center">Our Associates</h3> -->
+<Script>
+        window.onload = function () {
+                var mySwiper = new Swiper('.product_swiper .swiper-container', {
+                    slidesPerView: 5,
+                    spaceBetween: 50,
+                    loop: true,
+                    autoplay: {
+                        delay: 1000,
+                        disableOnInteraction: false, // Change to false to keep autoplay running even when user interacts with swiper
+                    },
+                    createElements: false,
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                });
+            
+                // Add event listeners to pause and resume autoplay
+                var swiperContainer = document.querySelector('.swiper-container');
+                swiperContainer.addEventListener('mouseenter', function () {
+                    mySwiper.autoplay.stop();
+                });
+            
+                swiperContainer.addEventListener('mouseleave', function () {
+                    mySwiper.autoplay.start();
+                });
+            };
+</Script>
+
+<div class="ss_section_eight solar_partner_section wow fadeInUp" data-wow-delay="0.3s"
+        style="visibility: hidden; animation-delay: 0.3s; animation-name: none;">
+        <!--         <h3 class="ss_h3_center text-center">Our Associates</h3> -->
         <h1 class="text-center">Popular Brands</h1>
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <!-- Swiper -->
-                    <div class="swiper-container swiper-container-horizontal">
-                        <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
-                            <div class="swiper-slide" data-swiper-slide-index="1" style="width: 400px; margin-right: 10px;"><img src="https://stocksales.b-cdn.net/static%20content/assets2/images/testinomial 3.png" alt="solar-installation-partner-3"></div>
-                            <div class="swiper-slide" data-swiper-slide-index="2" style="width: 400px; margin-right: 10px;"><img src="https://stocksales.b-cdn.net/static%20content/assets2/images/testinomial 4.png" alt="solar-installation-partner-4"></div>
-                            <div class="swiper-slide" data-swiper-slide-index="3" style="width: 400px; margin-right: 10px;"><img src="https://stocksales.b-cdn.net/static%20content/assets2/images/testinomial 5.png" alt="solar-installation-partner-5"></div>
-                            <div class="swiper-slide" data-swiper-slide-index="4" style="width: 400px; margin-right: 10px;"><img src="https://stocksales.b-cdn.net/static%20content/assets/images/partner%209.jpg" alt="solar-installation-partner-5"></div>
-                            <div class="swiper-slide" data-swiper-slide-index="5" style="width: 400px; margin-right: 10px;"><img src="https://stocksales.b-cdn.net/static%20content/assets/images/partner%2010.jpg" alt="solar-installation-partner-5"></div>
+                <div class="row">
+                        <div class="col-12">
+                                <!-- Swiper -->
+                                <div class="swiper-container swiper-container-horizontal">
+                                        <div class="swiper-wrapper"
+                                                style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
+                                                <div class="swiper-slide" data-swiper-slide-index="1"
+                                                        style="width: 400px; margin-right: 10px;"><img
+                                                                src="https://stocksales.b-cdn.net/static%20content/assets2/images/testinomial 3.png"
+                                                                alt="solar-installation-partner-3"></div>
+                                                <div class="swiper-slide" data-swiper-slide-index="2"
+                                                        style="width: 400px; margin-right: 10px;"><img
+                                                                src="https://stocksales.b-cdn.net/static%20content/assets2/images/testinomial 4.png"
+                                                                alt="solar-installation-partner-4"></div>
+                                                <div class="swiper-slide" data-swiper-slide-index="3"
+                                                        style="width: 400px; margin-right: 10px;"><img
+                                                                src="https://stocksales.b-cdn.net/static%20content/assets2/images/testinomial 5.png"
+                                                                alt="solar-installation-partner-5"></div>
+                                                <div class="swiper-slide" data-swiper-slide-index="4"
+                                                        style="width: 400px; margin-right: 10px;"><img
+                                                                src="https://stocksales.b-cdn.net/static%20content/assets/images/partner%209.jpg"
+                                                                alt="solar-installation-partner-5"></div>
+                                                <div class="swiper-slide" data-swiper-slide-index="5"
+                                                        style="width: 400px; margin-right: 10px;"><img
+                                                                src="https://stocksales.b-cdn.net/static%20content/assets/images/partner%2010.jpg"
+                                                                alt="solar-installation-partner-5"></div>
+                                        </div>
+                                        <span class="swiper-notification" aria-live="assertive"
+                                                aria-atomic="true"></span>
+                                        <span class="swiper-notification" aria-live="assertive"
+                                                aria-atomic="true"></span>
+                                </div>
                         </div>
-                        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-                        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-                    </div>
                 </div>
-            </div>
         </div>
-    </div>
-     
+</div>
+
 
 <section class="ss_section_eight ss_section_sec_bg spacer_top spacer_bottom"> <!--===== Section Eight Start =====-->
         <div class="container-fluid">
@@ -264,7 +316,6 @@
                 </div>
         </div>
 </section>
-
 
 {#
 

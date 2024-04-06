@@ -18,7 +18,9 @@
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
 	<link rel="stylesheet" href="https://stocksales.b-cdn.net/static%20content/assets/css/color3.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 	<!--=== Favicon Link ===-->
 	<link rel="shortcut icon" type="image/png"
 		href="https://stocksales.b-cdn.net/static%20content/assets2/images/salesStockLogoSingle1.png ">
@@ -89,7 +91,6 @@
 			background: #fc6c54;
 			cursor: pointer;
 		}
-		
 	</style>
 	<style>
 		/* Disable up and down arrow keys */
@@ -122,6 +123,131 @@
 			font-size: 45px;
 		}
 	</style>
+	<style>
+		.navbar {
+			margin: 0 70px;
+			/* Reduced margin for smaller screens */
+			box-shadow: #d3d3d3;
+			display: flex;
+			flex-direction: row;
+		}
+
+		.search-container {
+			display: flex;
+			background-color: #f0f0f0;
+			border-radius: 20px;
+			padding: 5px;
+			width: 100%;
+			/* Full width for smaller screens */
+			max-width: 700px;
+			/* Limit maximum width */
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		}
+
+		.search-container input[type=text] {
+			flex: 1;
+			border: none;
+			background: none;
+			outline: none;
+			font-size: 16px;
+			padding: 6px 10px;
+			height: 28px;
+		}
+
+		.search-container button {
+			background: none;
+			border: none;
+			color: #666;
+			cursor: pointer;
+			transition: color 0.3s ease;
+			position: relative;
+		}
+
+		.search-container button:hover {
+			color: #333;
+		}
+
+		.search-container button:focus {
+			outline: none;
+
+		}
+
+		.search-container button::before {
+			content: '';
+			display: block;
+			height: 100%;
+			width: 1px;
+			background-color: #ccc;
+			position: absolute;
+			left: -5px;
+			top: 0;
+		}
+
+		/* Adjustments for smaller screens */
+		@media screen and (max-width: 768px) {
+			.navbar {
+				margin: 0 10px;
+				/* Further reduced margin */
+			}
+
+			.search-container {
+				padding: 5px;
+			}
+		}
+
+		@media screen and (max-width: 480px) {
+			.search-container {
+				padding: 5px;
+			}
+		}
+
+		@media (min-width: 576px) {
+			.sm-visible {
+				display: none;
+			}
+		}
+
+		.elementHov {
+
+			font-size: 20px;
+			border-radius: 0px;
+			box-shadow: #000000;
+			background-color: #ece9e9;
+			border-radius: 10px;
+		}
+
+		/* Add this CSS to your stylesheet */
+		.ss_menu ul li {
+			position: relative;
+		}
+
+		.menu-link {
+			color: rgb(138, 127, 127);
+			position: relative;
+			text-decoration: none;
+		}
+
+		.menu-link::after {
+			content: '';
+			position: absolute;
+			bottom: -10px;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 0;
+			height: 0;
+			border-left: 5px solid transparent;
+			border-right: 5px solid transparent;
+			border-top: 5px solid transparent;
+			opacity: 0;
+			transition: opacity 0.3s ease;
+		}
+
+		.menu-link:hover::after {
+			opacity: 1;
+			border-top-color: #000;
+			/* Change color as needed */
+		}
+	</style>
 </head>
 
 <body class="index_three">
@@ -136,44 +262,61 @@
 									alt="logo" /></a>
 						</div>
 					</div>
-					<div class="col-lg-9 col-md-7 col-sm-8 col-8 align-self-center">
-						<div class="ss_menu">
-							<ul class="text-dark">
-								<li><a href="{{url_for('index')}}">Home</a></li>
-								<li><a href="{{url_for('about')}}">About</a></li>
-								<li class="ss_menuP">
-									Products
-									<ul class="ss_subMenu">
-										{% for element in data_categories %}
-										<li><a
-												href="{{url_for('subcategories',id=element['_id'])}}">{{element['name']}}</a>
-										</li>
-										{% endfor %}
-									</ul>
-								</li>
-								<li><a href="{{url_for('contactus')}}">Contact Us</a></li>
-							</ul>
-							<div class="head_icon">
-								<div class="ss_menu_bar">
-									<span></span>
-									<span></span>
-									<span></span>
-								</div>
-								{% if current_user.is_authenticated %}
-								{% if  is_admin %}
-								<a href="{{url_for('Admin.Admin_index')}}"
-									class="submitbtn border border-danger">DashBoard</a>
-								{% endif %}
-								<a href="{{url_for('Auth.logout')}}" class="submitbtn border border-danger">Logout</a>
-								{%else%}
-								<a href="{{url_for('Auth.login')}}" class="submitbtn border border-danger">SignIn</a>
-								{% endif %}
+					<div class="col-lg-9 col-md-7 col-sm-8 col-8 align-self-center"
+						style="display: flex; justify-content: space-between;">
+						<div class="search-container">
+							<input type="text" placeholder="Search...">
+							<button type="submit">Search</button>
+						</div>
+						<div class="head_icon " style="margin-top: 6px; margin-left:6px;">
+							<div class="ss_menu_bar">
+								<span></span>
+								<span></span>
+								<span></span>
 							</div>
+						</div>
+						<div class="head_icon d-none d-sm-block d-md-block" style=" padding-left: 50px">
+
+							{% if current_user.is_authenticated %}
+							{% if is_admin %}
+							<a href="{{url_for('Admin.Admin_index')}}"
+								class="submitbtn border border-danger ">DashBoard</a>
+							{% endif %}
+							<a href="{{url_for('Auth.logout')}}" class="submitbtn border border-danger ">Logout</a>
+							{%else%}
+							<a href="{{url_for('Auth.login')}}" class="submitbtn border border-danger ">SignIn</a>
+							{% endif %}
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		<div class="navbar">
+			<div class="col-lg-12 col-md-9 col-sm-7 col-8 align-self-center">
+    <div class="ss_menu">
+        <ul type="none" class="text-dark elementHov" style="display: flex; justify-content:center; justify-content: space-between;  margin-top:20px; padding: 20px 10px; justify-items:center; align-items:center; text-decoration: none;">
+            {% for element in data_categories %}
+            <li><a class="menu-link" href="{{url_for('subcategories',id=element['_id'])}}">{{element['name']}}</a></li>
+            {% endfor %}
+            <li class="sm-visible md-visible d-lg-none d-md-none d-xl-none">
+                <div>
+                    {% if current_user.is_authenticated %}
+                    {% if is_admin %}
+                    <a href="{{url_for('Admin.Admin_index')}}" class="submitbtn border border-danger">DashBoard</a>
+                    {% endif %}
+                    <a href="{{url_for('Auth.logout')}}" class="submitbtn border border-danger">Logout</a>
+                    {% else %}
+                    <a href="{{url_for('Auth.login')}}" class="submitbtn border border-danger">SignIn</a>
+                    {% endif %}
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+		</div>
+
 	</section>
 	{% block content %}
 
@@ -256,7 +399,8 @@
 								<h2 class="ss_foot_head">Products</h2>
 								<ul>
 									{% for element in data_categories %}
-									<li><a href="{{url_for('subcategories',id=element['_id'])}}"> {{element['name']}}</a></li>
+									<li><a href="{{url_for('subcategories',id=element['_id'])}}">
+											{{element['name']}}</a></li>
 									{% endfor %}
 
 								</ul>
@@ -272,7 +416,7 @@
 								<ul>
 									<li><a href="/"> Suppliers</a></li>
 									<li><a href="{{url_for('about')}}"> About Us</a></li>
-									
+
 									<li><a href="{{url_for('contactus')}}"> Contact Us</a></li>
 									<li><a href="{{url_for('blogs')}}">Blogs</a></li>
 									<li><a href="{{url_for('TermsAndCondition')}}">Terms And Condition</a></li>
@@ -287,8 +431,10 @@
 								<ul>
 									<li>Address : 65, 1st floor, Greater Kailash Colony, Lal Kothi, Behind Apex Mall,
 										Jaipur, Rajasthan, INDIA, 302015</li>
-										<li>Email: <a href="mailto:info@stocksale.in">info@stocksale.in</a></li>
-										<li>Phone: <a href="tel:+919950845678">+91-99508-45678</a> <br> <span style="padding-left: 58px;"><a href="tel:+919875000011">+91-98750-00011</a></span></li>
+									<li>Email: <a href="mailto:info@stocksale.in">info@stocksale.in</a></li>
+									<li>Phone: <a href="tel:+919950845678">+91-99508-45678</a> <br> <span
+											style="padding-left: 58px;"><a
+												href="tel:+919875000011">+91-98750-00011</a></span></li>
 								</ul>
 							</div>
 						</div>
@@ -322,6 +468,16 @@
 			var modal = new bootstrap.Modal(document.getElementById('videoModal'));
 			modal.show();
 		}
+	</script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			var searchInput = document.querySelector(".search-container input[type=text]");
+			var searchButton = document.querySelector(".search-container button");
+
+			searchButton.addEventListener("click", function () {
+				searchInput.value = "";
+			});
+		});
 	</script>
 </body>
 
