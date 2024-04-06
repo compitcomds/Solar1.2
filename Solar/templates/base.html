@@ -132,6 +132,37 @@
 			flex-direction: row;
 		}
 
+		.navbar1 {
+
+			/* Reduced margin for smaller screens */
+			box-shadow: #d3d3d3;
+			display: flex;
+			flex-direction: row;
+		}
+
+		/* Media query for medium-sized screens */
+		@media screen and (min-width: 600px) and (max-width: 992px) {
+			.navbar1 {
+				margin: 4px 80px;
+				/* Reduced margin for medium screens */
+			}
+		}
+
+		@media screen and (min-width: 993px) and (max-width: 1197px) {
+			.navbar1 {
+				margin: 8px 100px;
+				/* Reduced margin for medium screens */
+			}
+		}
+
+		/* Media query for small-sized screens */
+		@media screen and (min-width: 300px) and (max-width: 599px) {
+			.navbar1 {
+				margin: 4px 0px;
+				/* Reduced margin for small screens */
+			}
+		}
+
 		.search-container {
 			display: flex;
 			background-color: #f0f0f0;
@@ -139,7 +170,8 @@
 			padding: 5px;
 			width: 100%;
 			/* Full width for smaller screens */
-			max-width: 700px;
+			max-width: 1000px;
+			min-width: 100px;
 			/* Limit maximum width */
 			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 		}
@@ -183,75 +215,39 @@
 			top: 0;
 		}
 
-		/* Adjustments for smaller screens */
-		@media screen and (max-width: 768px) {
-			.navbar {
-				margin: 0 10px;
-				/* Further reduced margin */
-			}
 
-			.search-container {
-				padding: 5px;
-			}
-		}
-
-		@media screen and (max-width: 480px) {
-			.search-container {
-				padding: 5px;
-			}
-		}
-
-		@media (min-width: 576px) {
-			.sm-visible {
-				display: none;
-			}
-		}
 
 		.elementHov {
 
 			font-size: 20px;
 			border-radius: 0px;
 			box-shadow: #000000;
-			background-color: #ece9e9;
+			
 			border-radius: 10px;
 		}
-
-		/* Add this CSS to your stylesheet */
-		.ss_menu ul li {
-			position: relative;
+		.elementHov:hover {
+			color: #f0f0f0;
 		}
-
+	</style>
+	<style>
 		.menu-link {
-			color: rgb(138, 127, 127);
 			position: relative;
-			text-decoration: none;
+			display: inline-block;
 		}
 
-		.menu-link::after {
-			content: '';
-			position: absolute;
-			bottom: -10px;
-			left: 50%;
-			transform: translateX(-50%);
-			width: 0;
-			height: 0;
-			border-left: 5px solid transparent;
-			border-right: 5px solid transparent;
-			border-top: 5px solid transparent;
+		.menu-link .svg-overlay {
 			opacity: 0;
 			transition: opacity 0.3s ease;
 		}
 
-		.menu-link:hover::after {
+		.menu-link:hover .svg-overlay {
 			opacity: 1;
-			border-top-color: #000;
-			/* Change color as needed */
 		}
 	</style>
 </head>
 
 <body class="index_three">
-	<section class="ss_index_one_navbar sticky-top bg-white top-0 p-3">
+	<section class="ss_index_one_navbar sticky-top bg-white top-0 pt-3 px-3 d-none d-lg-none d-xl-block mb-2" >
 		<div class="container-fluid">
 			<div class="ss_header p-0 m-0">
 				<div class="row">
@@ -275,7 +271,7 @@
 								<span></span>
 							</div>
 						</div>
-						<div class="head_icon d-none d-sm-block d-md-block" >
+						<div class="head_icon d-none d-sm-block d-md-block">
 
 							{% if current_user.is_authenticated %}
 							{% if is_admin %}
@@ -293,31 +289,101 @@
 		</div>
 		<div class="navbar">
 			<div class="col-lg-12 col-md-9 col-sm-7 col-8 align-self-center">
-    <div class="ss_menu">
-        <ul type="none" class="text-dark elementHov" style="display: flex; justify-content:center; justify-content: space-between;  margin-top:20px; padding: 20px 10px; justify-items:center; align-items:center; text-decoration: none;">
-            {% for element in data_categories %}
-            <li><a class="menu-link" href="{{url_for('subcategories',id=element['_id'])}}">{{element['name']}}</a></li>
-            {% endfor %}
-            <li class="sm-visible md-visible d-lg-none d-md-none d-xl-none">
-                <div>
-                    {% if current_user.is_authenticated %}
-                    {% if is_admin %}
-                    <a href="{{url_for('Admin.Admin_index')}}" class="submitbtn border border-danger">DashBoard</a>
-                    {% endif %}
-                    <a href="{{url_for('Auth.logout')}}" class="submitbtn border border-danger">Logout</a>
-                    {% else %}
-                    <a href="{{url_for('Auth.login')}}" class="submitbtn border border-danger">SignIn</a>
-                    {% endif %}
-                </div>
-            </li>
-        </ul>
-    </div>
-</div>
+				<div class="ss_menu">
+					<ul class="text-light " 
+						style="list-style:none; background-color:#ee7e1a;border-radius: 30px; z-index:0; display: flex; justify-content:center; justify-content: space-between;  margin-top:20px; padding: 20px 10px; justify-items:center; align-items:center; text-decoration: none;">
+						{% for element in data_categories %}
+						<li>
+							<a class="menu-link" href="{{url_for('subcategories',id=element['_id'])}}"
+								style="position: relative;">
+								<span class="elementHov" style="color:#ffffff">{{element['name']}}</span>
+								<svg class="svg-overlay" viewBox="0 0 1000 200" xmlns="http://www.w3.org/2000/svg"
+									style="position: absolute; top: 24; left: 0; width: 100%; height: 100%; pointer-events: none;">
+									<path fill="#ffffff"
+										d="m928.47,164.14c-12.2-.04-29.31-5.61-44.41-10.53-7.61-2.48-14.81-4.82-21.26-6.45-47.94-12.13-93.42-34.01-137.4-55.16-8.77-4.22-17.83-8.58-26.68-12.74-111.6-52.52-128.44-60.23-150.87-66.47-15.99-4.44-41.04-10.2-73.45-12.45-3.32-.11-6.65-.23-9.97-.34-3.45.11-6.9.23-10.35.34-31.47,2.13-56.37,7.68-73.5,12.45-22.48,6.26-39.45,14.04-150.83,66.47-8.84,4.16-17.89,8.51-26.65,12.73-43.99,21.16-89.48,43.04-137.43,55.18-6.45,1.63-13.64,3.97-21.26,6.45-15.1,4.92-32.22,10.49-44.42,10.53l.04,20.49,453.95.03h0s10.25,0,10.25,0h10.25s0,0,0,0l453.95-.03.03-20.49Z" />
+								</svg>
+							</a>
+						</li>
+						{% endfor %}
+					</ul>
+
+
+				</div>
+			</div>
 
 
 		</div>
+		
+	</section>
+
+	<section
+		class="ss_index_one_navbar sticky-top bg-white top-0 p-3 d-block d-sm-block d-md-block d-lg-block d-xl-none">
+		<div class="container-fluid">
+			<div class="ss_header p-0 m-0">
+				<div class="row">
+					<div class="col-lg-3 col-md-5 col-sm-4 col-4 align-self-center">
+						<div class="ss_logo">
+							<a href="{{url_for('index')}}"><img class="img-fluid"
+									src="https://stocksales.b-cdn.net/static%20content/assets2/images/salesStockLogo.png "
+									alt="logo" /></a>
+						</div>
+					</div>
+					<div class="col-lg-9 col-md-7 col-sm-8 col-8 align-self-center">
+
+						<div class="ss_menu">
+							<ul class="text-dark">
+								{% for element in data_categories %}
+								<li>
+									<a class="menu-link" href="{{url_for('subcategories',id=element['_id'])}}"
+										style="position: relative;">
+										<span>{{element['name']}}</span>
+										<svg class="svg-overlay" viewBox="0 0 1000 200"
+											xmlns="http://www.w3.org/2000/svg"
+											style="position: absolute; top: 24; left: 0; width: 100%; height: 100%; pointer-events: none;">
+											<path fill="#ffffff"
+												d="m928.47,164.14c-12.2-.04-29.31-5.61-44.41-10.53-7.61-2.48-14.81-4.82-21.26-6.45-47.94-12.13-93.42-34.01-137.4-55.16-8.77-4.22-17.83-8.58-26.68-12.74-111.6-52.52-128.44-60.23-150.87-66.47-15.99-4.44-41.04-10.2-73.45-12.45-3.32-.11-6.65-.23-9.97-.34-3.45.11-6.9.23-10.35.34-31.47,2.13-56.37,7.68-73.5,12.45-22.48,6.26-39.45,14.04-150.83,66.47-8.84,4.16-17.89,8.51-26.65,12.73-43.99,21.16-89.48,43.04-137.43,55.18-6.45,1.63-13.64,3.97-21.26,6.45-15.1,4.92-32.22,10.49-44.42,10.53l.04,20.49,453.95.03h0s10.25,0,10.25,0h10.25s0,0,0,0l453.95-.03.03-20.49Z" />
+										</svg>
+									</a>
+								</li>
+								{% endfor %}
+
+								<li>{% if current_user.is_authenticated %}
+									{% if is_admin %}
+									<a href="{{url_for('Admin.Admin_index')}}"
+										class="submitbtn border border-danger">DashBoard</a>
+									{% endif %}
+									<a href="{{url_for('Auth.logout')}}"
+										class="submitbtn border border-danger">Logout</a>
+									{%else%}
+									<a href="{{url_for('Auth.login')}}"
+										class="submitbtn border border-danger">SignIn</a>
+									{% endif %}
+								</li>
+							</ul>
+							<div class="head_icon">
+								<div class="ss_menu_bar">
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="navbar1">
+			<div class="  col-12 align-self-center">
+				<div class="search-container">
+					<input type="text" placeholder="Search...">
+					<button type="submit">Search</button>
+				</div>
+			</div>
+		</div>
 
 	</section>
+
 	{% block content %}
 
 	{% endblock content %}
@@ -407,7 +473,7 @@
 							</div>
 						</div>
 					</div>
-				</div   >
+				</div>
 				<div class="col-lg-6 col-md-12">
 					<div class="row">
 						<div class="col-lg-6 col-md-6 col-sm-6">
