@@ -26,7 +26,7 @@
             {{ element._id }}
           </div>
           <div class="h5 mb-0 font-weight-bold text-gray-800">
-            {{ element.name }}
+            {{ element.name }} 
           </div>
         </div>
 
@@ -68,7 +68,7 @@
       <div>
         <a href="{{ url_for('Admin.ShowSubCategory', subcat=element._id) }}" class="m-1 btn btn-primary btn-icon-split">
           <span class="icon text-white-50">
-            <i class="fa-solid fa-eye"></i>
+            <B>{{element.SubCategory|length}}  </B>
           </span>
           <span class="text">View Subcategory</span>
         </a>
