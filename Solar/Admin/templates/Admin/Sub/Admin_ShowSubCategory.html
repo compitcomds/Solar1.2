@@ -79,7 +79,7 @@
       <div class ="justify-content-bottom d-block">
         <a href="{{ url_for('Admin.ShowProduct', main_id=element['_id'], sub_id=subcat) }}" class="m-1 btn btn-primary btn-icon-split">
           <span class="icon text-white-50">
-            <i class="fa-solid fa-eye"></i>
+           <B>{{element.Product|length}}</B>
           </span>
           <span class="text">View Product</span>
         </a>

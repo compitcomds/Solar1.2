@@ -156,11 +156,11 @@ def add_product(sub_id, main_id):
                 'productid':form.productid.data,
                 'minimumOrderUnit':form.minimumOrderUnit.data,
                 'height':form.height.data,
-                'width':form.width.data,
+                'length':form.length.data,
+                'breadth':form.breadth.data,
                 'weight':form.weight.data,
                 'compare_parameter': {},
                 'top':form.top.data}
-        print(data)
         data['product_id']=str(uuid.uuid4())[0:5]            
         for field_name in field_names:
             field_value = getattr(form, field_name['name']).data
