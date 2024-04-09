@@ -185,7 +185,7 @@
 			height: 28px;
 		}
 
-		
+
 
 		.search-container {
 			display: flex;
@@ -196,7 +196,7 @@
 			min-width: 100px;
 			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 		}
-		
+
 		.search-container input[type=text] {
 			flex: 1;
 			border: none;
@@ -205,7 +205,7 @@
 			font-size: 16px;
 			height: 28px;
 		}
-		
+
 		.search-container .search-button {
 			background: none;
 			border: none;
@@ -214,15 +214,15 @@
 			transition: color 0.3s ease;
 			position: relative;
 		}
-		
+
 		.search-container .search-button:hover {
 			color: #333;
 		}
-		
+
 		.search-container .search-button:focus {
 			outline: none;
 		}
-		
+
 		.search-container .search-button::before {
 			content: '';
 			display: block;
@@ -233,7 +233,7 @@
 			left: -5px;
 			top: 0;
 		}
-		
+
 
 		.elementHov {
 
@@ -281,24 +281,25 @@
 						style="display: flex; justify-content: space-between;">
 						<form action="/product" method="GET" class="search-container" onsubmit="return validateForm()">
 							<input type="text" name="Name" id="searchInput" placeholder="Search...">
-							<input type="submit" value="Search" style="float: inline-end;  background-color: #757575; color: white; border: none;  cursor: pointer;  width: auto;">
+							<input type="submit" value="Search"
+								style="float: inline-end;  background-color: #757575; color: white; border: none;  cursor: pointer;  width: auto;">
 
 							<!-- <input type="submit" value="Search" > -->
-							
+
 						</form>
-						
-						
+
+
 						<script>
-						function validateForm() {
-							var inputValue = document.getElementById("searchInput").value;
-							if (inputValue.trim() === "") {
-								alert("Please enter a search term");
-								return false; // Prevent form submission
+							function validateForm() {
+								var inputValue = document.getElementById("searchInput").value;
+								if (inputValue.trim() === "") {
+									alert("Please enter a search term");
+									return false; // Prevent form submission
+								}
+								return true; // Allow form submission
 							}
-							return true; // Allow form submission
-						}
 						</script>
-						
+
 
 						<div class="head_icon " style="margin-top: 6px; margin-left:6px;">
 							<div class="ss_menu_bar">
@@ -412,10 +413,20 @@
 		<div class="navbar1">
 			<div class="  col-12 align-self-center">
 				<div class="search-container">
-					<form action="/product" method="GET" class="search-container" onsubmit="return validateForm()">
-							<input type="text" name="Name" id="searchInput" placeholder="Search...">
-							choti
-						</form>
+					<!-- <form action="/product" method="GET" class="search-container" onsubmit="return validateForm()">
+						<input type="text" name="Name" id="searchInput" placeholder="Search...">
+
+						<input type="submit" value="Search"
+							style="float: inline-end;  background-color: #757575; color: white; border: none;  cursor: pointer;  width: auto;">
+
+					</form> -->
+					<form action="/product" method="GET" class="search-container" >
+						<input type="text" name="Name" id="searchInput" placeholder="Search...">
+						<input type="submit" value="Search" style="float: inline-end;  background-color: #757575; color: white; border: none;  cursor: pointer;  width: auto;">
+
+						<!-- <input type="submit" value="Search" > -->
+						
+					</form>
 				</div>
 			</div>
 		</div>
