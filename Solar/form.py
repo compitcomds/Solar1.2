@@ -53,3 +53,5 @@ class productquery(FlaskForm):
             ], render_kw={"placeholder": "Enter your phone number", "oninput": "this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);"})
     netQty=IntegerField('NetQty',validators=[DataRequired()])
     submit=SubmitField('Submit')
+
+

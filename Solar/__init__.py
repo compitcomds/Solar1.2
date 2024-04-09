@@ -85,13 +85,36 @@ def index():
               'Avg Monthly Electricity Bill (Rs)':form2.ameb.data,
               'pin code':form2.pincode.data,
               'companyName':form2.companyName.data,
-            'date':str(datetime.now().strftime('%Y-%m-%d'))
+              'date':str(datetime.now().strftime('%Y-%m-%d'))
 
               }
         db.solarEnq.insert_one(data2)
         SendTYmessage(form.email.data)
         return redirect (url_for('index'))
     return render_template('index.html',data_small_banner=data_small_banner,data_big_banner=data_big_banner,data_top_product=data_top_product,data_blog=data_blog,form=form,form2=form2)
+
+from bson.regex import Regex
+
+@app.route('/product')
+def productse():
+    qwe = getladder()
+    name_query = request.args.get('Name')
+    
+    # Constructing the query with regex to perform a case-insensitive search
+    if name_query:
+        regex_pattern = Regex(name_query, 'i')
+        query = {'name': {'$regex': regex_pattern}}
+    else:
+        query = {}  # Empty query to retrieve all documents if no search term provided
+    
+    # Performing the search on the 'product' collection
+    data_product_list = list(db.Product.find(query))
+    
+    # Retrieving data for the side navigation
+    data_sideNav = list(db.MainCategory.find())
+    
+    return render_template('subcategories.html', qwe=qwe, data=data_product_list, data_sideNav=data_sideNav)
+
 
 @app.route('/bigBanner')
 def bigBanner():
@@ -102,11 +125,11 @@ def bigBanner():
 def about():
     return render_template('about.html')
 
+
 @app.route('/subcategories/<string:id>')
 def subcategories(id):
     qwe=getladder()
     data_product_list=[]
-   
     data=db.MainCategory.find({'_id':ObjectId(id)})
     list_ofsubcat=(list(data[0]['SubCategory']))
     for i in list_ofsubcat:

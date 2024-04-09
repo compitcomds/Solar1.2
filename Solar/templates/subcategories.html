@@ -47,11 +47,12 @@
 
 					<div class="col-lg-4 col-md-12 col-sm-6">
 						<div class="ss_six_product wow fadeIn" data-wow-delay="0.1s" data-wow-duration="1s">
+							<a href="{{url_for('productdetails',prod_id=element['_id'])}}">
+							
 							<div class="ss_six_p_img ss_box_bg">
 								<img class="img-fluid" src="{{'https://'+ element['photos1'] }}" alt="image" />
 							</div>
 							<div class="ss_product_content ss_box_bg">
-								<a href="{{url_for('productdetails',prod_id=element['_id'])}}">
 									<h2 style="font-size:x-large;">
 										<b>{{element['name']}}</b>
 									</h2>
@@ -59,9 +60,9 @@
 										<p class="pt-2">₹{{element['price']}}</p>
 									</b>
 
-								</a>
+								</div>
+							</a>
 							</div>
-						</div>
 					</div>
 					{%endfor%}
 

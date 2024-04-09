@@ -70,7 +70,7 @@ Product: function() {
     if ($('.solar_product_section .swiper-container').length > 0) {
         var swiper = new Swiper('.solar_product_section .swiper-container', {
             loop: true,
-            slidesPerView: 5,
+            slidesPerView: 4,
             spaceBetween: 10,
             autoplay: {
                 delay: 1500,
@@ -78,12 +78,16 @@ Product: function() {
             },
             breakpoints: {
                 2000:{
-                    slidesPerView: 4,
+                    slidesPerView: 3,
                     spaceBetween: 30,
                 },
-                1250: {
+				1300: {
+					slidesPerView: 4,
+					spaceBetween: 15,
+				},
+				1000:{
                     slidesPerView: 3,
-                    spaceBetween: 15,
+                    spaceBetween: 30,
                 },
                 768: {
                     slidesPerView: 2,
