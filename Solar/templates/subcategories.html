@@ -46,13 +46,13 @@
 					{% for element in data %}
 
 					<div class="col-lg-4 col-md-12 col-sm-6">
-						<div class="ss_six_product wow " data-wow-delay="0.1s" data-wow-duration="1s">
+						<!-- <div class="ss_six_product wow " data-wow-delay="0.1s" data-wow-duration="1s">
 							<a href="{{url_for('productdetails',prod_id=element['_id'])}}">
-							
-							<div class="ss_six_p_img ss_box_bg">
-								<img class="img-fluid" src="{{'https://'+ element['photos1'] }}" alt="image" />
-							</div>
-							<div class="ss_product_content ss_box_bg">
+
+								<div class="ss_six_p_img ss_box_bg">
+									<img class="img-fluid" src="{{'https://'+ element['photos1'] }}" alt="image" />
+								</div>
+								<div class="ss_product_content ss_box_bg">
 									<h2 style="font-size:x-large;">
 										<b>{{element['name']}}</b>
 									</h2>
@@ -61,7 +61,23 @@
 									</b>
 								</div>
 							</a>
+						</div> -->
+						<div class="swiper-slide " data-swiper-slide-index="{{loop.index}}">
+							<div class="ss_six_product " data-wow-delay="0.3s" data-wow-duration="2s">
+								<a href="{{url_for('productdetails',prod_id=element['_id'])}}">
+						
+									<div class="ss_box_bg">
+										<img class="img-fluid" src="{{'https://'+ element['photos1'] }}" alt="image" title="image">
+									</div>
+									<div class="ss_product_content ss_box_bg">
+										<h2><b>{{ element['name'] }} </b></h2>
+										<b>
+											<p class="pt-2">₹{{ element['price'] }}</p>
+										</b>
+									</div>
+								</a>
 							</div>
+						</div>
 					</div>
 					{%endfor%}
 
@@ -72,3 +88,6 @@
 	</div>
 </section>
 {%endblock%}
+
+
+

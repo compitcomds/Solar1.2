@@ -330,7 +330,7 @@
                 <div class="swiper-container swiper-container-horizontal">
                         <div class="swiper-wrapper">
                                 {% if data_top_product is iterable %}
-                                {% for product in data_top_product*6 %}
+                                {% for product in data_top_product %}
                                 {% if product %}
                                 <div class="swiper-slide " data-swiper-slide-index="{{loop.index}}">
                                         <div class="ss_six_product wow fadeIn" data-wow-delay="0.3s"
@@ -343,7 +343,7 @@
                                                                         alt="image" title="image">
                                                         </div>
                                                         <div class="ss_product_content ss_box_bg">
-                                                                <h2><b>{{ product['name'] }} {{loop.index}}</b></h2>
+                                                                <h2><b>{{ product['name'] }} </b></h2>
                                                                 <b>
                                                                         <p class="pt-2">₹{{ product['price'] }}</p>
                                                                 </b>
