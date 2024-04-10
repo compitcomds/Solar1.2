@@ -82,7 +82,7 @@ Product: function() {
                     spaceBetween: 30,
                 },
 				1300: {
-					slidesPerView: 4,
+					slidesPerView: 3,
 					spaceBetween: 15,
 				},
 				1000:{
@@ -172,7 +172,7 @@ Product: function() {
 						  spaceBetween: 15,
 						},
 						760: {
-						  slidesPerView: 3,
+						  slidesPerView: 2,
 						  spaceBetween: 10,
 						},
 						440:{
