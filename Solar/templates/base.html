@@ -255,8 +255,8 @@
 									alt="logo" /></a>
 						</div>
 					</div>
-					<div class="col-lg-9 col-md-7 col-sm-8 col-8 align-items-center"
-						style="display: flex; justify-content: space-between;">
+					<div class="col-lg-9 col-md-7 col-sm-8 col-8 align-items-center -pl-2"
+						style="display: flex; justify-content: space-between; ">
 						<form action="/product" method="GET" class="search-container align-items-center"  onsubmit="return validateForm()">
 							<input type="text" name="Name" id="searchInput" placeholder="Search..." >
 							<input type="submit" value="Search" class="align-items-center submitbtn"
@@ -286,18 +286,19 @@
 								<span></span>
 							</div>
 						</div>
-						<div class="head_icon d-none d-sm-block d-md-block">
-
-							{% if current_user.is_authenticated %}
-							{% if is_admin %}
-							<a href="{{url_for('Admin.Admin_index')}}"
-								class="submitbtn border border-danger ">DashBoard</a>
-							{% endif %}
-							<a href="{{url_for('Auth.logout')}}" class="submitbtn border border-danger ">Logout</a>
-							{%else%}
-							<a href="{{url_for('Auth.login')}}" class="submitbtn border border-danger ">SignIn</a>
-							{% endif %}
+						<div class="head_icon d-none d-sm-block d-md-block d-flex justify-content-between pl-1">
+							<div class="row ">							
+									{% if current_user.is_authenticated %}
+										{% if is_admin %}
+											<a href="{{url_for('Admin.Admin_index')}}" class="submitbtn border border-danger">DashBoard</a>
+										{% endif %}
+										<a href="{{url_for('Auth.logout')}}" class="submitbtn border border-danger">Logout</a>
+									{% else %}
+										<a href="{{url_for('Auth.login')}}" class="submitbtn border border-danger">SignIn</a>
+									{% endif %}								
+							</div>
 						</div>
+						
 					</div>
 				</div>
 			</div>

@@ -235,7 +235,8 @@ def ViewProductDetails(Product_id,Sub_id,Main_id):
                 'productid':form.productid.data,
                 'minimumOrderUnit':form.minimumOrderUnit.data,
                 'height':form.height.data,
-                'width':form.width.data,
+                'length':form.length.data,
+                'breadth':form.breadth.data,
                 'weight':form.weight.data,
                 'compare_parameter': {},
                 'top':form.top.data}
