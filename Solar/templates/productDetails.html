@@ -1,20 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="container mt-5">
-{% with messages = get_flashed_messages(category_filter=["sm"]) %}
+    {% with messages = get_flashed_messages(category_filter=["sm"]) %}
     {% if messages %}
-        {% for message in messages %}
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                {{ message }}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        {% endfor %}
-    {% endif %}
-{% endwith %}
-
+    {% for message in messages %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+</div>
 <section class="ss_product_single spacer_top spacer_bottom p-2 mt-4"> <!--===== Section Product Single Start =====-->
     <div class="container-fluid">
         <div class="row">
@@ -48,12 +48,12 @@
                     <h2>₹{{data['price']}}.00</h2>
                     <div class="ss_specifi">
                         <h2>Specification</h2>
-                            <p><span>Brand Name</span> <span>{{data['brand']}}</span></p>
-                            <p><span>Product Id</span> <span>{{data['productid']}}</span></p>
-                            <p><span>Minimum Order Unit</span> <span>{{data['minimumOrderUnit']}}</span></p>
-                            <p><span>Height (in)</span> <span>{{data['height']}}</span></p>
-                            <p><span>Width (in)</span> <span>{{data['width']}}</span></p>
-                            <p><span>Weight (kg)</span> <span>{{data['weight']}}</span></p>
+                        <p><span>Brand Name</span> <span>{{data['brand']}}</span></p>
+                        <p><span>Product Id</span> <span>{{data['productid']}}</span></p>
+                        <p><span>Minimum Order Unit</span> <span>{{data['minimumOrderUnit']}}</span></p>
+                        <p><span>Height (in)</span> <span>{{data['height']}}</span></p>
+                        <p><span>Width (in)</span> <span>{{data['width']}}</span></p>
+                        <p><span>Weight (kg)</span> <span>{{data['weight']}}</span></p>
                     </div>
                     <div class="row" style="padding-top: 20px;">
                         <!-- Button to trigger modal -->
@@ -87,7 +87,7 @@
                                                 <label for="name">Name:</label>
                                                 {{form.name(class="form-control", id="name",
                                                 placeholder="Enter your name")}}
-                                                
+
                                             </div>
                                             <div class="form-group">
                                                 <label for="email">Email:</label>
@@ -96,13 +96,13 @@
                                             </div>
                                             <div class="form-group">
                                                 {{ form.number.label(for="phone") }}
-                                                            {{ form.number(class="form-control", id="phone", type="number") }}
+                                                {{ form.number(class="form-control", id="phone", type="number") }}
                                             </div>
                                             <div class="form-group">
                                                 <label for="quantity">Net Quantity:</label>
-                                        
-                                                    {{form.netQty(class="form-control", id="quantity",
-                                                    placeholder="Enter net quantity")}}
+
+                                                {{form.netQty(class="form-control", id="quantity",
+                                                placeholder="Enter net quantity")}}
                                             </div>
                                             {{form.submit(class="ss_btn ",
                                             style="justify-content: center;")}}
@@ -160,10 +160,17 @@
 
                     <div class="ss_specifi">
                         <h2>Specification</h1>
-                            {% for item in data['compare_parameter'] %}
-                            <p><span>{{item}}</span> <span>                            {{data['compare_parameter'][item]}}
-                            </span></p>
-                            {% endfor %}
+ 
+                            <table class="table table-striped ">
+                                <tbody>
+                                  {% for item in data['compare_parameter'] %}
+                                  <tr>
+                                    <td>{{ item }}</td>
+                                    <td>{{ data['compare_parameter'][item] }}</td>
+                                  </tr>
+                                  {% endfor %}
+                                </tbody>
+                              </table>
                     </div>
 
                 </div>

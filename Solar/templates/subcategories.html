@@ -35,35 +35,97 @@
 					</ul>
 				</aside><!-- End Sidebar-->
 			</div>
-			<div class="naman col-xl-10 col-lg-9 col-md-9 col-12 p-4" style="height: 800px; overflow-y: auto;">
-				<div class="row">
 
-					{% for element in data %}
-						{% if element != none %}    
-							<div class="col-lg-4 col-md-12 col-sm-6">
-								<div class="ss_six_product" data-wow-delay="0.1s" data-wow-duration="1s">
-									<a href="{{url_for('productdetails',prod_id=element['_id'])}}">
-									
+			<div class="naman col-xl-10 col-lg-9 col-md-9 col-12 p-4" style="height: 800px; overflow-y: auto;">
+				<div>
+					<h5>Results Product {{data|length}}</h5>
+					{#<div class="dropdown">
+						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Filter by Price
+						</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<a class="dropdown-item active" href="#" id="no_filter">Relavant Product</a>
+							<a class="dropdown-item" href="#" id="high_to_low">High to Low</a>
+							<a class="dropdown-item" href="#" id="low_to_high">Low to High</a>
+						</div>
+					</div>
+				</div>#}
+
+				<hr>
+				<div>
+					<div class="filter-div row" id="no_filter">
+						{% for element in data %}
+						{% if element is not none %}
+						<div class="col-lg-4 col-xl-3 col-md-6 col-sm-6 filter-div">
+							<div class="ss_six_product" data-wow-delay="0.1s" data-wow-duration="1s">
+								<a href="{{ url_for('productdetails', prod_id=element['_id']) }}">
 									<div class="ss_six_p_img ss_box_bg">
-										<img class="img-fluid" src="https://{{element['photos1'] }}" alt="image" />
+										<img class="img-fluid" src="https://{{ element['photos1'] }}" alt="image" />
 									</div>
 									<div class="ss_product_content ss_box_bg">
-											<h2 style="font-size:x-large;">
-												<b>{{element['name']}}</b>
-											</h2>
-											<b>
-												<p class="pt-2">₹{{element['price']}}</p>
-											</b>
-
-										</div>
-									</a>
+										<h2>{{ element['name'] }}</h2>
+										<b>
+											<p class="pt-2">₹{{ element['price'] }}</p>
+										</b>
 									</div>
+								</a>
 							</div>
-					     {% endif %}
-					{%endfor%}
+						</div>
+						{% endif %}
+						{% endfor %}
+					</div>
+					{#<div class="filter-div row" id="high_to_low_div" class="filter-div">
+						{% set sorted_data_high_to_low = data | sort(attribute='price', reverse=true) %}
+						{% set sorted_data_low_to_high = data | sort(attribute='price') %}
+
+						<!-- Display products sorted from high to low price -->
+						{% for element in sorted_data_high_to_low %}
+						{% if element is not none %}
+						<div class="col-lg-4 col-xl-3 col-md-6 col-sm-6">
+							<div class="ss_six_product" data-wow-delay="0.1s" data-wow-duration="1s">
+								<a href="{{ url_for('productdetails', prod_id=element['_id']) }}">
+									<div class="ss_six_p_img ss_box_bg">
+										<img class="img-fluid" src="https://{{ element['photos1'] }}" alt="image" />
+									</div>
+									<div class="ss_product_content ss_box_bg">
+										<h2>{{ element['name'] }}</h2>
+										<b>
+											<p class="pt-2">₹{{ element['price'] }}</p>
+										</b>
+									</div>
+								</a>
+							</div>
+						</div>
+						{% endif %}
+						{% endfor %}
+					</div>
+					<div class="filter-div row" id="low_to_high_div">
+						<!-- Display products sorted from low to high price -->
+						{% for element in sorted_data_low_to_high %}
+						{% if element is not none %}
+						<div class="col-lg-4 col-xl-3 col-md-6 col-sm-6 ">
+							<div class="ss_six_product" data-wow-delay="0.1s" data-wow-duration="1s">
+								<a href="{{ url_for('productdetails', prod_id=element['_id']) }}">
+									<div class="ss_six_p_img ss_box_bg">
+										<img class="img-fluid" src="https://{{ element['photos1'] }}" alt="image" />
+									</div>
+									<div class="ss_product_content ss_box_bg">
+										<h2>{{ element['name'] }}</h2>
+										<b>
+											<p class="pt-2">₹{{ element['price'] }}</p>
+										</b>
+									</div>
+								</a>
+							</div>
+						</div>
+						{% endif %}
+						{% endfor %}
+					</div>
+					#}
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
+
 {%endblock%}

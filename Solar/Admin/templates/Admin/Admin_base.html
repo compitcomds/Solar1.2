@@ -235,9 +235,18 @@
         <script>
             function goBack() {
               window.history.back();
+              window.onload = function() {
+                if (!localStorage.getItem('refreshed')) {
+                    localStorage.setItem('refreshed', 'true');
+                    window.location.reload();
+                } else {
+                    localStorage.removeItem('refreshed');
+                }
+            };
             }
           </script>
-
+        
+        
 </body>
 
 </html>
