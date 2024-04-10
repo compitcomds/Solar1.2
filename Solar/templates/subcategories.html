@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<section class="abcd ss_product ss_section_six ss_shop pb-1">
+<section class="abcd ss_product ss_section_six ss_shop pb-a1">
 	<div class="container-fluid ml-0 pl-4 pr-4">
 		<div class="row">
 			<div class="col-xl-2 col-lg-3 col-md-3 d-none d-sm-block p-0 m-0 " style="height: 800px; overflow-y: auto;">
@@ -46,7 +46,7 @@
 					{% for element in data %}
 
 					<div class="col-lg-4 col-md-12 col-sm-6">
-						<div class="ss_six_product wow fadeIn" data-wow-delay="0.1s" data-wow-duration="1s">
+						<div class="ss_six_product wow " data-wow-delay="0.1s" data-wow-duration="1s">
 							<a href="{{url_for('productdetails',prod_id=element['_id'])}}">
 							
 							<div class="ss_six_p_img ss_box_bg">
@@ -59,7 +59,6 @@
 									<b>
 										<p class="pt-2">₹{{element['price']}}</p>
 									</b>
-
 								</div>
 							</a>
 							</div>
