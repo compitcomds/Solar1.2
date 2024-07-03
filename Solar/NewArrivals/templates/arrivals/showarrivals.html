@@ -1,0 +1,24 @@
+{% extends 'Admin_base.html' %}
+{% block content %}
+
+{{data}}
+    <div class="container">
+        <h1>New Arrivals</h1>
+        <div class="row">
+            {% for item in data %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ item.title }}</h5>
+                            <p class="card-text">{{ item.description }}</p>
+                            <a href="{{ item.video_url }}" class="btn btn-primary" target="_blank">Watch Video</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+
+{% endblock %}

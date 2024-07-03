@@ -34,6 +34,9 @@ app.register_blueprint(Banner,url_prefix='/BannerAdmin')
 from Solar.SmallBanner.view import SmallBanner
 app.register_blueprint(SmallBanner,url_prefix='/SmallBannerAdmin')
 
+from Solar.NewArrivals.view import NewArrival
+app.register_blueprint(NewArrival,url_prefix='/NewArrivals')
+
 def getToppro():
     list=[]
     data=db.topPro.find()
