@@ -14,7 +14,7 @@ def check_is_User():
     if not(current_user.is_authenticated  and current_user.role=='Admin'):
         return "<h1>this is invalid</h1>","403"
     
-@NewArrival.route('/Admin_addArrivals',methods=['GET','POST'])
+@NewArrival.route('/Arrivals',methods=['GET','POST'])
 def addArrival():
     
     # req= request.args['isupdate']
@@ -40,13 +40,12 @@ def showarrivals():
     print(data)
     return render_template('showarrivals.html',data=data)
 
-# @NewArrival.route('deletearrivals /<string:arrival_id')
-# def deleteArrival(arrival_id):
-#     result = db.NewArrivals.delete_one({'_id':ObjectId(arrival_id)})
-#     if result:
-#         flash(message='deleted successfully', category='success')
-#         return redirect(url_for('NewArrvals.showArraivals'))
-#     else:
-#         flash(message='not able to  delete', category='error')
-#         return redirect(url_for('NewArrvals.showArraivals'))
+@NewArrival.route('/deletearrival/<arrival_id>')
+def deleteArrival(arrival_id):
+    result = db.NewArrivals.delete_one({'_id': ObjectId(arrival_id)})
+    if result.deleted_count > 0:
+        flash('Deleted successfully', 'success')
+    else:
+        flash('Not able to delete', 'error')
+    return redirect(url_for('NewArrivals.showarrivals'))
     
