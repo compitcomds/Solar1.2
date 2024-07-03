@@ -1,227 +1,254 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 <style>
-        /* 1. For viewport width less than or equal to 300px */
-        @media only screen and (max-width: 300px) {
+  /* 1. For viewport width less than or equal to 300px */
+  @media only screen and (max-width: 300px) {
+    /* CSS styles here */
+    .ss_box_bg img {
+      height: 370px;
+      width: auto;
+      object-fit: cover;
+    }
 
-                /* CSS styles here */
-                .ss_box_bg img {
-                        height: 370px;
-                        width: auto;
-                        object-fit: cover;
-                }
+    .ss_box_bg h2 {
+      font-size: 10px;
+    }
+  }
 
-                .ss_box_bg h2 {
-                        font-size: 10px;
-                }
-        }
+  /* 2. For viewport width between 301px and 480px */
+  @media only screen and (min-width: 301px) and (max-width: 480px) {
+    /* CSS styles here */
+    .ss_box_bg img {
+      height: 380px;
+      width: auto;
+      object-fit: cover;
+    }
 
-        /* 2. For viewport width between 301px and 480px */
-        @media only screen and (min-width: 301px) and (max-width: 480px) {
+    .ss_box_bg h2 {
+      font-size: 10px;
+    }
+  }
 
-                /* CSS styles here */
-                .ss_box_bg img {
-                        height: 380px;
-                        width: auto;
-                        object-fit: cover;
-                }
+  /* 3. For viewport width between 481px and 640px */
+  @media only screen and (min-width: 481px) and (max-width: 640px) {
+    /* CSS styles here */
+    .ss_box_bg img {
+      height: 390px;
+      width: auto;
+      object-fit: cover;
+    }
 
-                .ss_box_bg h2 {
-                        font-size: 10px;
-                }
-        }
+    .ss_box_bg h2 {
+      font-size: 10px;
+    }
+  }
 
-        /* 3. For viewport width between 481px and 640px */
-        @media only screen and (min-width: 481px) and (max-width: 640px) {
+  /* 4. For viewport width between 641px and 768px */
+  @media only screen and (min-width: 641px) and (max-width: 768px) {
+    /* CSS styles here */
+    .ss_box_bg img {
+      height: 400px;
+      width: auto;
+      object-fit: cover;
+    }
 
-                /* CSS styles here */
-                .ss_box_bg img {
-                        height: 390px;
-                        width: auto;
-                        object-fit: cover;
-                }
+    .ss_box_bg h2 {
+      font-size: 10px;
+    }
+  }
 
-                .ss_box_bg h2 {
-                        font-size: 10px;
-                }
-        }
+  /* 5. For viewport width between 769px and 1024px */
+  @media only screen and (min-width: 769px) and (max-width: 1280px) {
+    .ss_box_bg img {
+      height: 400px;
+      width: auto;
+      object-fit: cover;
+    }
 
+    .ss_box_bg h2 {
+      font-size: 10px;
+    }
+  }
 
-        /* 4. For viewport width between 641px and 768px */
-        @media only screen and (min-width: 641px) and (max-width: 768px) {
+  /* 7. For viewport width between 1281px and 1366px */
+  @media only screen and (min-width: 1281px) and (max-width: 1366px) {
+    .ss_box_bg img {
+      height: 440px;
+      width: auto;
+    }
 
-                /* CSS styles here */
-                .ss_box_bg img {
-                        height: 400px;
-                        width: auto;
-                        object-fit: cover;
-                }
+    .ss_box_bg h2 {
+      font-size: 25px;
+    }
+  }
 
-                .ss_box_bg h2 {
-                        font-size: 10px;
-                }
-        }
+  /* 8. For viewport width between 1367px and 1440px */
+  @media only screen and (min-width: 1367px) and (max-width: 1440px) {
+    .ss_box_bg img {
+      height: 350px;
+      width: auto;
+    }
 
-        /* 5. For viewport width between 769px and 1024px */
-        @media only screen and (min-width: 769px) and (max-width: 1280px) {
-                .ss_box_bg img {
-                        height: 400px;
-                        width: auto;
-                        object-fit: cover;
-                }
+    .ss_box_bg h2 {
+      font-size: 20px;
+    }
+  }
 
-                .ss_box_bg h2 {
-                        font-size: 10px;
-                }
-        }
+  /* 9. For viewport width greater than or equal to 1441px */
+  @media only screen and (min-width: 1441px) {
+    .ss_box_bg img {
+      height: 400px;
+      width: auto;
+    }
 
+    .ss_box_bg h2 {
+      font-size: 25px;
+    }
+  }
 
-        /* 7. For viewport width between 1281px and 1366px */
-        @media only screen and (min-width: 1281px) and (max-width: 1366px) {
-                .ss_box_bg img {
-
-                        height: 440px;
-                        width: auto;
-                }
-
-                .ss_box_bg h2 {
-                        font-size: 25px;
-                }
-        }
-
-        /* 8. For viewport width between 1367px and 1440px */
-        @media only screen and (min-width: 1367px) and (max-width: 1440px) {
-                .ss_box_bg img {
-                        height: 350px;
-                        width: auto;
-                }
-
-                .ss_box_bg h2 {
-                        font-size: 20px;
-                }
-        }
-
-        /* 9. For viewport width greater than or equal to 1441px */
-        @media only screen and (min-width: 1441px) {
-                .ss_box_bg img {
-
-                        height: 400px;
-                        width: auto;
-                }
-
-                .ss_box_bg h2 {
-                        font-size: 25px;
-                }
-        }
-
-        /* 10. For viewport width less than or equal to 1440px */
-        @media only screen and (max-width: 1440px) {}
+  /* 10. For viewport width less than or equal to 1440px */
+  @media only screen and (max-width: 1440px) {
+  }
 </style>
 
 <section class="ss_section_one">
-        <div class="container-fluid">
-                <!-- carousel start-->
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner rounded-sm">
-                                {% if data_big_banner %}
-                                <div class=" carousel-item active"><a href="{{data_big_banner[0]['url']}}">
-                                                <img class="d-block  w-100 "
-                                                        src="{{'https://'+ data_big_banner[0]['image_link'] }}"
-                                                        alt="First slide"
-                                                        style="min-height:auto; max-height:450px;"></a>
-                                </div>
-                                {% endif %}
-                                {% for element in data_big_banner[1:] %}
-                                <div class="carousel-item">
-                                        <a href="{{element['url']}}"><img class="d-block w-100 "
-                                                        src="{{'https://'+ element['image_link'] }}" alt="Second slide"
-                                                        style="min-height:auto; max-height:450px;"></a>
-                                </div>
-                                {% endfor %}
-                        </div>
-                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
-                                data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleControls" role="button"
-                                data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                        </a>
-                </div>
+  <div class="container-fluid">
+    <!-- carousel start-->
+    <div
+      id="carouselExampleControls"
+      class="carousel slide"
+      data-ride="carousel"
+    >
+      <div class="carousel-inner rounded-sm">
+        {% if data_big_banner %}
+        <div class="carousel-item active">
+          <a href="{{data_big_banner[0]['url']}}">
+            <img
+              class="d-block w-100"
+              src="{{'https://'+ data_big_banner[0]['image_link'] }}"
+              alt="First slide"
+              style="min-height: auto; max-height: 450px"
+          /></a>
         </div>
+        {% endif %} {% for element in data_big_banner[1:] %}
+        <div class="carousel-item">
+          <a href="{{element['url']}}"
+            ><img
+              class="d-block w-100"
+              src="{{'https://'+ element['image_link'] }}"
+              alt="Second slide"
+              style="min-height: auto; max-height: 450px"
+          /></a>
+        </div>
+        {% endfor %}
+      </div>
+      <a
+        class="carousel-control-prev"
+        href="#carouselExampleControls"
+        role="button"
+        data-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a
+        class="carousel-control-next"
+        href="#carouselExampleControls"
+        role="button"
+        data-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
 </section>
 
-<section class="ss_section_eight spacer_top" style="padding-top: 16px; margin:10px 0;" style="background-color: white;">
-        <div class="container-fluid mb-5 mt-2">
-                <div class="swiper-container">
-                        <div class="swiper-wrapper">
-                                {% for element in data_small_banner %}
-                                <div class="swiper-slide">
-                                        <div class="ss_eight ss_box_wbg wow fadeIn" data-wow-delay="0.2s"
-                                                data-wow-duration="1s">
-                                                <a href="{{element['url']}}">
-                                                        <img class="img-fluid"
-                                                                src="{{'https://'+ element['image_link'] }}" alt="image"
-                                                                title="image" />
-                                                </a>
-                                        </div>
-                                </div>
-                                {% endfor %}
-                        </div>
-                </div>
-                <!-- Add Pagination -->
-                <!-- <div class="swiper-pagination"</div> -->
+<section
+  class="ss_section_eight spacer_top"
+  style="padding-top: 16px; margin: 10px 0"
+  style="background-color: white"
+>
+  <div class="container-fluid mb-5 mt-2">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        {% for element in data_small_banner %}
+        <div class="swiper-slide">
+          <div
+            class="ss_eight ss_box_wbg wow fadeIn"
+            data-wow-delay="0.2s"
+            data-wow-duration="1s"
+          >
+            <a href="{{element['url']}}">
+              <img
+                class="img-fluid"
+                src="{{'https://'+ element['image_link'] }}"
+                alt="image"
+                title="image"
+              />
+            </a>
+          </div>
         </div>
-</section> <!--===== Section Two End =====-->
+        {% endfor %}
+      </div>
+    </div>
+    <!-- Add Pagination -->
+    <!-- <div class="swiper-pagination"</div> -->
+  </div>
+</section>
+<!--===== Section Two End =====-->
 
-<section class="ss_section_three spacer_bottom" id="services"> <!--===== Section Three Start =====-->
-        <div class="container-fluid">
-                <div class="row">
-                        <div class="col-lg-6 d-sm-block d-lg-none d-md-block">
-                                <div class="ss_three_left">
-                                        <div class="embed-responsive embed-responsive-16by9 ">
-                                                <iframe class="embed-responsive-item" style="border-radius: 10px;"
-                                                        src="https://iframe.mediadelivery.net/embed/228265/6ed1e237-fa08-4d14-b82f-bfb2adddf0db?autoplay=false&loop=true&muted=false&preload=true&responsive=false"
-                                                        loading="lazy"
-                                                        allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
-                                                        allowfullscreen></iframe>
-                                        </div>
-                                </div>
-                        </div>
-                        <div class="col-lg-6 p-5 d-none d-lg-block d-xl-block">
-                                <div class="ss_three_left">
-                                        <div class="embed-responsive embed-responsive-16by9 ">
-                                                <iframe class="embed-responsive-item" style="border-radius: 10px;"
-                                                        src="https://iframe.mediadelivery.net/embed/228265/6ed1e237-fa08-4d14-b82f-bfb2adddf0db?autoplay=false&loop=true&muted=false&preload=true&responsive=false"
-                                                        loading="lazy"
-                                                        allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
-                                                        allowfullscreen></iframe>
-                                        </div>
-                                </div>
-                        </div>
-
-                        <div class="col-lg-6 align-self-center">
-                                <div class="ss_three_right wow fadeIn" data-wow-delay="0.1s">
-                                        <h3>Products</h3>
-                                        <h1>We provide awesome products</h1>
-                                        <p style="padding-bottom: 20px;">“We offer exceptional services that exceed
-                                                expectations and
-                                                leave our clients satisfied. Our commitment to excellence drives us to
-                                                go above and beyond,
-                                                ensuring that every interaction with our team is a positive and
-                                                memorable one. Whether it’s
-                                                personalized customer support, innovative solutions, or timely delivery,
-                                                we take pride in
-                                                providing nothing less than the best. Our clients can trust us to
-                                                deliver on our promise of
-                                                awesome services, making their experience truly remarkable.”</p>
-                                        <a href="{{url_for('about')}}" class="ss_btn">Explore</a>
-                                </div>
-                        </div>
-                </div>
+<section class="ss_section_three spacer_bottom" id="services">
+  <!--===== Section Three Start =====-->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6 d-sm-block d-lg-none d-md-block">
+        <div class="ss_three_left">
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe
+              class="embed-responsive-item"
+              style="border-radius: 10px"
+              src="https://iframe.mediadelivery.net/embed/228265/6ed1e237-fa08-4d14-b82f-bfb2adddf0db?autoplay=false&loop=true&muted=false&preload=true&responsive=false"
+              loading="lazy"
+              allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
+              allowfullscreen
+            ></iframe>
+          </div>
         </div>
+      </div>
+      <div class="col-lg-6 p-5 d-none d-lg-block d-xl-block">
+        <div class="ss_three_left">
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe
+              class="embed-responsive-item"
+              style="border-radius: 10px"
+              src="https://iframe.mediadelivery.net/embed/228265/6ed1e237-fa08-4d14-b82f-bfb2adddf0db?autoplay=false&loop=true&muted=false&preload=true&responsive=false"
+              loading="lazy"
+              allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 align-self-center">
+        <div class="ss_three_right wow fadeIn" data-wow-delay="0.1s">
+          <h3>Products</h3>
+          <h1>We provide awesome products</h1>
+          <p style="padding-bottom: 20px">
+            “We offer exceptional services that exceed expectations and leave
+            our clients satisfied. Our commitment to excellence drives us to go
+            above and beyond, ensuring that every interaction with our team is a
+            positive and memorable one. Whether it’s personalized customer
+            support, innovative solutions, or timely delivery, we take pride in
+            providing nothing less than the best. Our clients can trust us to
+            deliver on our promise of awesome services, making their experience
+            truly remarkable.”
+          </p>
+          <a href="{{url_for('about')}}" class="ss_btn">Explore</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
@@ -236,234 +263,307 @@
         </div>
 </div> -->
 <!-- ----------------------------------------------- -->
-<section class="ss_section_four spacer_top spacer_bottom"> <!--===== Section Four Start =====-->
-        <div class="container-fluid">
-                <div class="row">
-                        <div class="col-lg-6 align-self-center">
-                                <div class="ss_five_right wow fadeIn" data-wow-delay="0.1s">
-                                        <h3>Exclusive Products</h3>
-                                        <h1>We are here to give you the best solar panel for your home</h1>
-                                        <p style="padding-bottom: 20px;">We Are Here to Give You the Exclusive Products
-                                                direct from
-                                                the factory outlet. “We understand the importance of product need of our
-                                                customers.
-                                                We provide a comprehensive overview of our product’s features and
-                                                functionalities.
-                                                During product selection, our experts walk you through the product
-                                                interface,
-                                                demonstrate key workflows, and showcase real-world use cases. Whether
-                                                you’re a
-                                                new user exploring our product or an existing customer looking to
-                                                maximize its
-                                                potential, our product demo ensures that you gain valuable insights and
-                                                hands-on
-                                                experience. Join us for an informative and interactive demo to unlock
-                                                the full
-                                                potential of our solution.”
-                                        </p>
-                                        <!-- <a href="#" class="ss_btn">Purchase Now</a> -->
-                                </div>
-                        </div>
-                        <div class="col-lg-6 align-self-center">
-                                <div class="ss_four_right">
-                                        <img class="img-fluid ss_four_shadow"
-                                                src="https://kamleshyadav.com/html/solar-supplier/html/bootstrap-5/assets/images/safe.png"
-                                                alt="image" title="image" />
-                                </div>
-                        </div>
-
-                </div>
+<section class="ss_section_four spacer_top spacer_bottom">
+  <!--===== Section Four Start =====-->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6 align-self-center">
+        <div class="ss_five_right wow fadeIn" data-wow-delay="0.1s">
+          <h3>Exclusive Products</h3>
+          <h1>We are here to give you the best solar panel for your home</h1>
+          <p style="padding-bottom: 20px">
+            We Are Here to Give You the Exclusive Products direct from the
+            factory outlet. “We understand the importance of product need of our
+            customers. We provide a comprehensive overview of our product’s
+            features and functionalities. During product selection, our experts
+            walk you through the product interface, demonstrate key workflows,
+            and showcase real-world use cases. Whether you’re a new user
+            exploring our product or an existing customer looking to maximize
+            its potential, our product demo ensures that you gain valuable
+            insights and hands-on experience. Join us for an informative and
+            interactive demo to unlock the full potential of our solution.”
+          </p>
+          <!-- <a href="#" class="ss_btn">Purchase Now</a> -->
         </div>
+      </div>
+      <div class="col-lg-6 align-self-center">
+        <div class="ss_four_right">
+          <img
+            class="img-  ss_four_shadow"
+            src="https://kamleshyadav.com/html/solar-supplier/html/bootstrap-5/assets/images/safe.png"
+            alt="image"
+            title="image"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 {#
-<section class=" ss_section_eight solar_product_section ss_section_sec_bg spacer_top spacer_bottom">
-        <!--===== Section Eight Start =====-->
-        <div class="container-fluid">
-                <h3 class="ss_h3_center text-center">Top Product</h3>
-                <h1 class="text-center mb-5">Most Sales</h1>
-                <div class="">
-                        <div class="row">
-                                <div class="col-12">
-                                        <div class="swiper-container swiper-container-horizontal">
-                                                <div class="swiper-wrapper ">
-                                                        {% if data_top_product is iterable %}
-                                                        {% for i in data_top_product*5 %}
-                                                        {% if i %}
-                                                        <div class="swiper-slide "
-                                                                data-swiper-slide-index="{{loop.index}}">
-                                                                <div class="ss_six_product wow fadeIn"
-                                                                        data-wow-delay="0.3s" data-wow-duration="2s"
-                                                                        style="visibility: visible; animation-duration: 2s; animation-delay: 0.3s; animation-name: fadeIn;">
-                                                                        <div class=" ss_box_bg ">
-                                                                                <img class="img-fluid "
-                                                                                        src="{{'https://'+ i['photos1'] }}"
-                                                                                        alt="image" title="image">
-                                                                        </div>
-                                                                        <div class="ss_product_content ss_box_bg">
-                                                                                <h2>
-                                                                                        <b>{{i['name']}}</b>
-                                                                                </h2>
-                                                                                <b>
-                                                                                        <p class="pt-2">₹{{i['price']}}
-                                                                                        </p>
-                                                                                </b>
-                                                                        </div>
-                                                                </div>
-                                                        </div>
-                                                        {% endif %}
-                                                        {% endfor %}
-                                                        {% endif %}
-                                                </div>
-                                        </div>
-                                </div>
-                        </div>
+<section
+  class="ss_section_eight solar_product_section ss_section_sec_bg spacer_top spacer_bottom"
+>
+  <!--===== Section Eight Start =====-->
+  <div class="container-fluid">
+    <h3 class="ss_h3_center text-center">Top Product</h3>
+    <h1 class="text-center mb-5">Most Sales</h1>
+    <div class="">
+      <div class="row">
+        <div class="col-12">
+          <div class="swiper-container swiper-container-horizontal">
+            <div class="swiper-wrapper">
+              {% if data_top_product is iterable %} {% for i in
+              data_top_product*5 %} {% if i %}
+              <div
+                class="swiper-slide"
+                data-swiper-slide-index="{{loop.index}}"
+              >
+                <div
+                  class="ss_six_product wow fadeIn"
+                  data-wow-delay="0.3s"
+                  data-wow-duration="2s"
+                  style="
+                    visibility: visible;
+                    animation-duration: 2s;
+                    animation-delay: 0.3s;
+                    animation-name: fadeIn;
+                  "
+                >
+                  <div class="ss_box_bg">
+                    <img
+                      class="img-fluid"
+                      src="{{'https://'+ i['photos1'] }}"
+                      alt="image"
+                      title="image"
+                    />
+                  </div>
+                  <div class="ss_product_content ss_box_bg">
+                    <h2>
+                      <b>{{i['name']}}</b>
+                    </h2>
+                    <b>
+                      <p class="pt-2">₹{{i['price']}}</p>
+                    </b>
+                  </div>
                 </div>
+              </div>
+              {% endif %} {% endfor %} {% endif %}
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
+  </div>
 </section>
 #}
 
-<section class="solar_product_section ss_section_sec_bg spacer_top spacer_bottom">
-        <!-- Section Eight Start -->
-        <div class="container-fluid">
-                <h3 class="ss_h3_center text-center">Top Product</h3>
-                <h1 class="text-center mb-5">Most Sales</h1>
-                <div class="swiper-container swiper-container-horizontal">
-                        <div class="swiper-wrapper">
-                                {% if data_top_product is iterable %}
-                                {% for product in data_top_product %}
-                                {% if product %}
-                                <div class="swiper-slide " data-swiper-slide-index="{{loop.index}}">
-                                        <div class="ss_six_product wow fadeIn" data-wow-delay="0.3s"
-                                                data-wow-duration="2s">
-                                                <a href="{{url_for('productdetails',prod_id=product['_id'])}}">
-
-                                                        <div class="ss_box_bg">
-                                                                <img class="img-fluid"
-                                                                        src="{{ 'https://' + product['photos1'] }}"
-                                                                        alt="image" title="image">
-                                                        </div>
-                                                        <div class="ss_product_content ss_box_bg">
-                                                                <h2><b>{{ product['name'] }} </b></h2>
-                                                                <b>
-                                                                        <p class="pt-2">₹{{ product['price'] }}</p>
-                                                                </b>
-                                                        </div>
-                                                </a>
-                                        </div>
-                                </div>
-                                {% endif %}
-                                {% endfor %}
-                                {% endif %}
-                        </div>
-                        <!-- Add Pagination -->
-                </div>
+<section
+  class="solar_product_section ss_section_sec_bg spacer_top spacer_bottom"
+>
+  <!-- Section Eight Start -->
+  <div class="container-fluid">
+    <h3 class="ss_h3_center text-center">Top Product</h3>
+    <h1 class="text-center mb-5">Most Sales</h1>
+    <div class="swiper-container swiper-container-horizontal">
+      <div class="swiper-wrapper">
+        {% if data_top_product is iterable %} {% for product in data_top_product
+        %} {% if product %}
+        <div class="swiper-slide" data-swiper-slide-index="{{loop.index}}">
+          <div
+            class="ss_six_product wow fadeIn"
+            data-wow-delay="0.3s"
+            data-wow-duration="2s"
+          >
+            <a href="{{url_for('productdetails',prod_id=product['_id'])}}">
+              <div class="ss_box_bg">
+                <img
+                  class="img-fluid"
+                  src="{{ 'https://' + product['photos1'] }}"
+                  alt="image"
+                  title="image"
+                />
+              </div>
+              <div class="ss_product_content ss_box_bg">
+                <h2><b>{{ product['name'] }} </b></h2>
+                <b>
+                  <!-- <p class="pt-2">₹{{ product['price'] }}</p> -->
+                </b>
+              </div>
+            </a>
+          </div>
         </div>
+        {% endif %} {% endfor %} {% endif %}
+      </div>
+      <!-- Add Pagination -->
+    </div>
+  </div>
 </section>
 
-
-
-
-<div class="ss_section_eight solar_partner_section wow fadeInUp" data-wow-delay="0.3s"
-        style="visibility: hidden; animation-delay: 0.3s; animation-name: none;">
-        <!--         <h3 class="ss_h3_center text-center">Our Associates</h3> -->
-        <h1 class="text-center">Popular Brands</h1>
-        <div class="container">
-                <div class="row">
-                        <div class="col-12">
-                                <!-- Swiper -->
-                                <div class="swiper-container swiper-container-horizontal">
-                                        <div class="swiper-wrapper"
-                                                style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms; ">
-                                                <div class="swiper-slide" data-swiper-slide-index="1"
-                                                        style="width: 100%; display:flex; justify-content:center;"><img
-                                                                src="https://stocksales.b-cdn.net/static%20content/assets2/images/testinomial 3.png"
-                                                                alt="solar-installation-partner-3"></div>
-                                                <div class="swiper-slide" data-swiper-slide-index="2"
-                                                        style="width: 100%; display:flex; justify-content:center;"><img
-                                                                src="https://stocksales.b-cdn.net/static%20content/assets2/images/testinomial 4.png"
-                                                                alt="solar-installation-partner-4"></div>
-                                                <div class="swiper-slide" data-swiper-slide-index="3"
-                                                        style="width: 100%; display:flex; justify-content:center;"><img
-                                                                src="https://stocksales.b-cdn.net/static%20content/assets2/images/testinomial 5.png"
-                                                                alt="solar-installation-partner-5"></div>
-                                                <div class="swiper-slide" data-swiper-slide-index="4"
-                                                        style="width: 100%; display:flex; justify-content:center;"><img
-                                                                src="https://stocksales.b-cdn.net/static%20content/assets/images/partner%209.jpg"
-                                                                alt="solar-installation-partner-5"></div>
-                                                <div class="swiper-slide" data-swiper-slide-index="5"
-                                                        style="width: 100%; display:flex; justify-content:center;"><img
-                                                                src="https://stocksales.b-cdn.net/static%20content/assets/images/partner%2010.jpg"
-                                                                alt="solar-installation-partner-5"></div>
-                                        </div>
-                                        <span class="swiper-notification" aria-live="assertive"
-                                                aria-atomic="true"></span>
-                                        <span class="swiper-notification" aria-live="assertive"
-                                                aria-atomic="true"></span>
-                                </div>
-                        </div>
-                </div>
+<div
+  class="ss_section_eight solar_partner_section wow fadeInUp"
+  data-wow-delay="0.3s"
+  style="visibility: hidden; animation-delay: 0.3s; animation-name: none"
+>
+  <!--         <h3 class="ss_h3_center text-center">Our Associates</h3> -->
+  <h1 class="text-center">Popular Brands</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <!-- Swiper -->
+        <div class="swiper-container swiper-container-horizontal">
+          <div
+            class="swiper-wrapper"
+            style="
+              transform: translate3d(0px, 0px, 0px);
+              transition-duration: 0ms;
+            "
+          >
+            <div
+              class="swiper-slide"
+              data-swiper-slide-index="1"
+              style="width: 100%; display: flex; justify-content: center"
+            >
+              <img
+                src="https://stocksales.b-cdn.net/static%20content/assets2/images/testinomial 3.png"
+                alt="solar-installation-partner-3"
+              />
+            </div>
+            <div
+              class="swiper-slide"
+              data-swiper-slide-index="2"
+              style="width: 100%; display: flex; justify-content: center"
+            >
+              <img
+                src="https://stocksales.b-cdn.net/static%20content/assets2/images/testinomial 4.png"
+                alt="solar-installation-partner-4"
+              />
+            </div>
+            <div
+              class="swiper-slide"
+              data-swiper-slide-index="3"
+              style="width: 100%; display: flex; justify-content: center"
+            >
+              <img
+                src="https://stocksales.b-cdn.net/static%20content/assets2/images/testinomial 5.png"
+                alt="solar-installation-partner-5"
+              />
+            </div>
+            <div
+              class="swiper-slide"
+              data-swiper-slide-index="4"
+              style="width: 100%; display: flex; justify-content: center"
+            >
+              <img
+                src="https://stocksales.b-cdn.net/static%20content/assets/images/partner%209.jpg"
+                alt="solar-installation-partner-5"
+              />
+            </div>
+            <div
+              class="swiper-slide"
+              data-swiper-slide-index="5"
+              style="width: 100%; display: flex; justify-content: center"
+            >
+              <img
+                src="https://stocksales.b-cdn.net/static%20content/assets/images/partner%2010.jpg"
+                alt="solar-installation-partner-5"
+              />
+            </div>
+          </div>
+          <span
+            class="swiper-notification"
+            aria-live="assertive"
+            aria-atomic="true"
+          ></span>
+          <span
+            class="swiper-notification"
+            aria-live="assertive"
+            aria-atomic="true"
+          ></span>
         </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-
-<section class="ss_section_eight ss_section_sec_bg spacer_top spacer_bottom"> <!--===== Section Eight Start =====-->
-        <div class="container-fluid">
-                <h3 class="ss_h3_center text-center">Blog Posts</h3>
-                <h1 class="text-center mb-5">Latest news</h1>
-                <div class="swiper-container swiper-container-horizontal">
-                        <div class="swiper-wrapper"
-                                style="transform: translate3d(-2516.67px, 0px, 0px); transition-duration: 0ms;">
-                                {% for element in data_blog %}
-                                <div class="swiper-slide" data-swiper-slide-index="0"
-                                        style="width: 473.333px; margin-right: 30px;">
-                                        <div class="ss_eight ss_box_wbg wow fadeIn" data-wow-delay="0.1s"
-                                                data-wow-duration="1s"
-                                                style="visibility: hidden; animation-duration: 1s; animation-delay: 0.1s; animation-name: none;">
-                                                <a href="{{url_for('blogDetails',blog_id=element['_id'])}}"><img
-                                                                class="img-fluid"
-                                                                src="{{'https://'+ element['image_link'] }}" alt="image"
-                                                                title="image"></a>
-                                                <div class="ss_product_content ss_box_bg">
-                                                        <h2> {{ element['heading'] }}
-                                                                <span>
-                                                                        {{ element['date'] }}
-                                                                </span>
-                                                        </h2>
-                                                </div>
-                                        </div>
-                                </div>
-                                {% endfor %}
-                        </div>
-                        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-                </div>
+<section class="ss_section_eight ss_section_sec_bg spacer_top spacer_bottom">
+  <!--===== Section Eight Start =====-->
+  <div class="container-fluid">
+    <h3 class="ss_h3_center text-center">Blog Posts</h3>
+    <h1 class="text-center mb-5">Latest news</h1>
+    <div class="swiper-container swiper-container-horizontal">
+      <div
+        class="swiper-wrapper"
+        style="
+          transform: translate3d(-2516.67px, 0px, 0px);
+          transition-duration: 0ms;
+        "
+      >
+        {% for element in data_blog %}
+        <div
+          class="swiper-slide"
+          data-swiper-slide-index="0"
+          style="width: 473.333px; margin-right: 30px"
+        >
+          <div
+            class="ss_eight ss_box_wbg wow fadeIn"
+            data-wow-delay="0.1s"
+            data-wow-duration="1s"
+            style="
+              visibility: hidden;
+              animation-duration: 1s;
+              animation-delay: 0.1s;
+              animation-name: none;
+            "
+          >
+            <a href="{{url_for('blogDetails',blog_id=element['_id'])}}"
+              ><img
+                class="img-fluid"
+                src="{{'https://'+ element['image_link'] }}"
+                alt="image"
+                title="image"
+            /></a>
+            <div class="ss_product_content ss_box_bg">
+              <h2>
+                {{ element['heading'] }}
+                <span> {{ element['date'] }} </span>
+              </h2>
+            </div>
+          </div>
         </div>
+        {% endfor %}
+      </div>
+      <span
+        class="swiper-notification"
+        aria-live="assertive"
+        aria-atomic="true"
+      ></span>
+    </div>
+  </div>
 </section>
 
 {#
 
-<hr>
+<hr />
 <form method="POST">
-        {{ form.hidden_tag() }}
-        <label>{{ form.name.label }}</label>{{ form.name() }}
-        <label>{{ form.number.label }}</label>{{ form.number() }}
-        <label>{{ form.email.label }}</label>{{ form.email() }}
-        <label>{{ form.ameb.label }}</label>{{ form.ameb() }}
-        <label>{{ form.pincode.label }}</label>{{ form.pincode() }}
-        {{ form.submit() }}
+  {{ form.hidden_tag() }}
+  <label>{{ form.name.label }}</label>{{ form.name() }}
+  <label>{{ form.number.label }}</label>{{ form.number() }}
+  <label>{{ form.email.label }}</label>{{ form.email() }}
+  <label>{{ form.ameb.label }}</label>{{ form.ameb() }}
+  <label>{{ form.pincode.label }}</label>{{ form.pincode() }} {{ form.submit()
+  }}
 </form>
 
-<hr>
-<hr>
+<hr />
+<hr />
 <form method="POST">
-        {{ form2.hidden_tag() }}
-        <label>{{ form2.name.label }}</label>{{ form2.name() }}
-        <label>{{ form2.number.label }}</label>{{ form2.number() }}
-        <label>{{ form2.email.label }}</label>{{ form2.email() }}
-        <label>{{ form2.ameb.label }}</label>{{ form2.ameb() }}
-        <label>{{ form2.pincode.label }}</label>{{ form2.pincode() }}
-        <label>{{ form2.companyName.label }}</label>{{ form2.companyName() }}
-        {{ form2.submit() }}
+  {{ form2.hidden_tag() }}
+  <label>{{ form2.name.label }}</label>{{ form2.name() }}
+  <label>{{ form2.number.label }}</label>{{ form2.number() }}
+  <label>{{ form2.email.label }}</label>{{ form2.email() }}
+  <label>{{ form2.ameb.label }}</label>{{ form2.ameb() }}
+  <label>{{ form2.pincode.label }}</label>{{ form2.pincode() }}
+  <label>{{ form2.companyName.label }}</label>{{ form2.companyName() }} {{
+  form2.submit() }}
 </form>
-#}
-
-{% endblock %}
+#} {% endblock %}

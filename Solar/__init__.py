@@ -180,7 +180,8 @@ def productdetails(prod_id):
         flash('Your query has been sent!','sm')
         SendTYmessage(form.email.data)
         return redirect(url_for('productdetails', prod_id = prod_id))
-    return render_template('productDetails.html',data=data,form=form)
+    data1=db.Product.aggregate([ { '$sample': { 'size': 8 } } ])
+    return render_template('productDetails.html',data=data,form=form,data1=data1 )
 
 import json
 def getsimilarproductlist(prod_id):

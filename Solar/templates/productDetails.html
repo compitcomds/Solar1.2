@@ -45,7 +45,7 @@
             <div class="col-lg-6">
                 <div class="ss_product_cont wow fadeIn" data-wow-delay="0.1s" data-wow-duration="1s">
                     <h1>{{data['name']}}</h1>
-                    <h2>₹{{data['price']}}.00</h2>
+                    <!-- <h2>₹{{data['price']}}.00</h2> -->
                     <div class="ss_specifi">
                         <h2>Specification</h2>
                         <p><span>Brand Name</span> <span>{{data['brand']}}</span></p>
@@ -182,6 +182,55 @@
             </div>
         </div>
     </div>
-</section>
+</section>  
 
+<section style="background-color:#5a87e40d ;" class ="p-3 my-4">
+    <div class = "px-5 mb-3">
+        <h1>
+            <b>Recommended Product</b>
+        </h1>
+    </div>
+    
+</section>
+<section
+  class="solar_product_section ss_section_sec_bg spacer_top spacer_bottom"
+>
+  <!-- Section Eight Start -->
+  <div class="container-fluid">
+    <h3 class="ss_h3_center text-center">Top Product</h3>
+    <h1 class="text-center mb-5">Most Sales</h1>
+    <div class="swiper-container swiper-container-horizontal">
+      <div class="swiper-wrapper">
+        {% if data_top_product is iterable %} {% for product in data1
+        %} {% if product['name'] != data['name'] %}
+        <div class="swiper-slide" data-swiper-slide-index="{{loop.index}}">
+          <div
+            class="ss_six_product wow fadeIn"
+            data-wow-delay="0.3s"
+            data-wow-duration="2s"
+          >
+            <a href="{{url_for('productdetails',prod_id=product['_id'])}}">
+              <div class="ss_box_bg">
+                <img
+                  class="img-fluid"
+                  src="{{ 'https://' + product['photos1'] }}"
+                  alt="image"
+                  title="image"
+                />
+              </div>
+              <div class="ss_product_content ss_box_bg">
+                <h2><b>{{ product['name'] }} </b></h2>
+                <b>
+                  <!-- <p class="pt-2">₹{{ product['price'] }}</p> -->
+                </b>
+              </div>
+            </a>
+          </div>
+        </div>
+        {% endif %} {% endfor %} {% endif %}
+      </div>
+      <!-- Add Pagination -->
+    </div>
+  </div>
+</section>
 {% endblock %}
