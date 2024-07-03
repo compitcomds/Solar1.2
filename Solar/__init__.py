@@ -65,6 +65,7 @@ def index():
     data_small_banner=list(db.smallbanner.find())
     data_big_banner=list(db.banner.find())
     data_blog=list(db.blog.find())
+    data_new_arrivals=db.NewArrivals.find()
     form=homepageform1()
     form2=homepageform2()
     if form.validate_on_submit():
@@ -94,7 +95,7 @@ def index():
         db.solarEnq.insert_one(data2)
         SendTYmessage(form.email.data)
         return redirect (url_for('index'))
-    return render_template('index.html',data_small_banner=data_small_banner,data_big_banner=data_big_banner,data_top_product=data_top_product,data_blog=data_blog,form=form,form2=form2)
+    return render_template('index.html',data_small_banner=data_small_banner,data_big_banner=data_big_banner,data_top_product=data_top_product,data_blog=data_blog,data_new_arrivals=data_new_arrivals,form=form,form2=form2)
 
 from bson.regex import Regex
 
