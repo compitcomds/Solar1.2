@@ -251,119 +251,13 @@
   </div>
 </section>
 
-<!-- <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                        <div class="modal-body">
-                                <div class="embed-responsive embed-responsive-16by9">
-                                        <iframe class="embed-responsive-item" id="videoPlayer" allowfullscreen></iframe>
-                                </div>
-                        </div>
-                </div>
-        </div>
-</div> -->
-<!-- ----------------------------------------------- -->
-<section class="ss_section_four spacer_top spacer_bottom">
-  <!--===== Section Four Start =====-->
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-6 align-self-center">
-        <div class="ss_five_right wow fadeIn" data-wow-delay="0.1s">
-          <h3>Exclusive Products</h3>
-          <h1>We are here to give you the best solar panel for your home</h1>
-          <p style="padding-bottom: 20px">
-            We Are Here to Give You the Exclusive Products direct from the
-            factory outlet. “We understand the importance of product need of our
-            customers. We provide a comprehensive overview of our product’s
-            features and functionalities. During product selection, our experts
-            walk you through the product interface, demonstrate key workflows,
-            and showcase real-world use cases. Whether you’re a new user
-            exploring our product or an existing customer looking to maximize
-            its potential, our product demo ensures that you gain valuable
-            insights and hands-on experience. Join us for an informative and
-            interactive demo to unlock the full potential of our solution.”
-          </p>
-          <!-- <a href="#" class="ss_btn">Purchase Now</a> -->
-        </div>
-      </div>
-      <div class="col-lg-6 align-self-center">
-        <div class="ss_four_right">
-          <img
-            class="img-  ss_four_shadow"
-            src="https://kamleshyadav.com/html/solar-supplier/html/bootstrap-5/assets/images/safe.png"
-            alt="image"
-            title="image"
-          />
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-{#
-<section
-  class="ss_section_eight solar_product_section ss_section_sec_bg spacer_top spacer_bottom"
->
-  <!--===== Section Eight Start =====-->
-  <div class="container-fluid">
-    <h3 class="ss_h3_center text-center">Top Product</h3>
-    <h1 class="text-center mb-5">Most Sales</h1>
-    <div class="">
-      <div class="row">
-        <div class="col-12">
-          <div class="swiper-container swiper-container-horizontal">
-            <div class="swiper-wrapper">
-              {% if data_top_product is iterable %} {% for i in
-              data_top_product*5 %} {% if i %}
-              <div
-                class="swiper-slide"
-                data-swiper-slide-index="{{loop.index}}"
-              >
-                <div
-                  class="ss_six_product wow fadeIn"
-                  data-wow-delay="0.3s"
-                  data-wow-duration="2s"
-                  style="
-                    visibility: visible;
-                    animation-duration: 2s;
-                    animation-delay: 0.3s;
-                    animation-name: fadeIn;
-                  "
-                >
-                  <div class="ss_box_bg">
-                    <img
-                      class="img-fluid"
-                      src="{{'https://'+ i['photos1'] }}"
-                      alt="image"
-                      title="image"
-                    />
-                  </div>
-                  <div class="ss_product_content ss_box_bg">
-                    <h2>
-                      <b>{{i['name']}}</b>
-                    </h2>
-                    <b>
-                      <p class="pt-2">₹{{i['price']}}</p>
-                    </b>
-                  </div>
-                </div>
-              </div>
-              {% endif %} {% endfor %} {% endif %}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-#}
-
 <section
   class="solar_product_section ss_section_sec_bg spacer_top spacer_bottom"
 >
   <!-- Section Eight Start -->
-  <div class="container-fluid">
+  <div class="container-fluid py-3">
     <h3 class="ss_h3_center text-center">Top Product</h3>
-    <h1 class="text-center mb-5">Most Sales</h1>
+    <h1 class="text-center my-3">Most Sales</h1>
     <div class="swiper-container swiper-container-horizontal">
       <div class="swiper-wrapper">
         {% if data_top_product is iterable %} {% for product in data_top_product
@@ -399,12 +293,50 @@
   </div>
 </section>
 
+<!-- ----------------------------------------------- -->
+<section class="ss_section_four spacer_top spacer_bottom">
+  <!--===== Section Four Start =====-->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6 align-self-center">
+        <div class="ss_five_right wow fadeIn" data-wow-delay="0.1s">
+          <h3>Exclusive Products</h3>
+          <h1>We are here to give you the best solar panel for your home</h1>
+          <p style="padding-bottom: 20px">
+            We Are Here to Give You the Exclusive Products direct from the
+            factory outlet. “We understand the importance of product need of our
+            customers. We provide a comprehensive overview of our product’s
+            features and functionalities. During product selection, our experts
+            walk you through the product interface, demonstrate key workflows,
+            and showcase real-world use cases. Whether you’re a new user
+            exploring our product or an existing customer looking to maximize
+            its potential, our product demo ensures that you gain valuable
+            insights and hands-on experience. Join us for an informative and
+            interactive demo to unlock the full potential of our solution.”
+          </p>
+          <!-- <a href="#" class="ss_btn">Purchase Now</a> -->
+        </div>
+      </div>
+      <div class="col-lg-6 align-self-center">
+        <div class="ss_four_right">
+          <img
+            class="img- ss_four_shadow"
+            src="https://kamleshyadav.com/html/solar-supplier/html/bootstrap-5/assets/images/safe.png"
+            alt="image"
+            title="image"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <div
   class="ss_section_eight solar_partner_section wow fadeInUp"
   data-wow-delay="0.3s"
   style="visibility: hidden; animation-delay: 0.3s; animation-name: none"
 >
-  <!--         <h3 class="ss_h3_center text-center">Our Associates</h3> -->
+
   <h1 class="text-center">Popular Brands</h1>
   <div class="container">
     <div class="row">
