@@ -30,11 +30,34 @@ Assigned to:
 			this.Toggle();
 			this.Counter();
 			this.Product();
-			
+			this.Product_slider()
 		},
 		
 		/*-------------- Solar Installation Functions Calling ---------------------------------------------------
 		---------------------------------------------------------------------------------------------------*/
+
+		Product_slider: function(){
+			if($('#product-swiper').length > 0){
+			var swiper = new Swiper('#product-swiper', {
+			  spaceBetween: 30,
+			  speed: 800,
+			  loop: true,
+			  centeredSlides: true,
+			  autoplay: {
+				delay: 4000,
+				disableOnInteraction: false,
+			  },
+			  pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+			  },
+			  navigation: {
+				nextEl: '.solar_testimonial_slider .swiper-button-next',
+				prevEl: '.solar_testimonial_slider .swiper-button-prev',
+			  },
+			});
+			}
+		},
 
 		
 		// Testimonial__slider
