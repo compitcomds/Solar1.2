@@ -22,7 +22,7 @@
     <!-- Custom styles for this template-->
     <link href="https://stocksales.b-cdn.net/dashboard/sb-admin-2.min.css" rel="stylesheet">
     <link rel="shortcut icon" type="image/png"
-		href="https://stocksales.b-cdn.net/static%20content/assets2/images/salesStockLogoSingle1.png ">
+        href="https://stocksales.b-cdn.net/static%20content/assets2/images/salesStockLogoSingle1.png ">
 </head>
 
 <body id="page-top">
@@ -35,15 +35,16 @@
 
             <!-- Sidebar - Brand -->
             <a href="{{url_for('index')}}"><img class="img-fluid p-3"
-                src="https://stocksales.b-cdn.net/static%20content/assets2/images/salesStockLogo.png "
-                alt="logo" /></a>
+                    src="https://stocksales.b-cdn.net/static%20content/assets2/images/salesStockLogo.png "
+                    alt="logo" /></a>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" onclick="window.location.href='{{url_for('Admin.Admin_index')}}'">
+                <a style="cursor: pointer;" class="nav-link"
+                    onclick="window.location.href='{{url_for('Admin.Admin_index')}}'">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Admin home
                     </span></a>
@@ -53,12 +54,13 @@
             <hr class="sidebar-divider">
 
             <!-- Heading -->
-            
+
 
             <!-- Nav Item - Pages Collapse Menu -->
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" onclick="window.location.href='{{url_for('Admin.ShowMainCategory')}}'">
+                <a style="cursor: pointer;" class="nav-link"
+                    onclick="window.location.href='{{url_for('Admin.ShowMainCategory')}}'">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Product-Categories
                     </span></a>
@@ -68,13 +70,15 @@
             <!-- Nav Item - Utilities Collapse Menu -->
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" onclick="window.location.href='{{url_for('Blog.ShowBlog')}}'">
+                <a style="cursor: pointer;" class="nav-link"
+                    onclick="window.location.href='{{url_for('Blog.ShowBlog')}}'">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Blog</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" onclick="window.location.href='{{url_for('SmallBanner.showsmallBanner')}}'">
+                <a style="cursor: pointer;" class="nav-link"
+                    onclick="window.location.href='{{url_for('SmallBanner.showsmallBanner')}}'">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Marketing Banner
                     </span></a>
@@ -83,7 +87,8 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" onclick="window.location.href='{{url_for('Banner.showBanner')}}'">
+                <a style="cursor: pointer;" class="nav-link"
+                    onclick="window.location.href='{{url_for('Banner.showBanner')}}'">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Banner</span></a>
             </li>
@@ -91,25 +96,29 @@
 
             <!-- Nav Item - Tables -->
             {#<li class="nav-item">
-                <a class="nav-link" onclick="window.location.href='{{url_for('Admin.showquery')}}'">
+                <a style="cursor: pointer;" class="nav-link"
+                    onclick="window.location.href='{{url_for('Admin.showquery')}}'">
                     <i class="fas fa-fw fa-table"></i>
                     <span>See Queries
                     </span></a>
             </li>#}
             <li class="nav-item">
-                <a class="nav-link" onclick="window.location.href='{{url_for('Admin.showProductQuery')}}'">
+                <a style="cursor: pointer;" class="nav-link"
+                    onclick="window.location.href='{{url_for('Admin.showProductQuery')}}'">
                     <i class="fas fa-fw fa-table"></i>
                     <span> See Product Queries
                     </span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" onclick="window.location.href='{{url_for('Admin.showcontactQuery')}}'">
+                <a style="cursor: pointer;" class="nav-link"
+                    onclick="window.location.href='{{url_for('Admin.showcontactQuery')}}'">
                     <i class="fas fa-fw fa-table"></i>
                     <span> show contact Query
                     </span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" onclick="window.location.href='{{url_for('NewArrivals.showarrivals')}}'">
+                <a style="cursor: pointer;" class="nav-link"
+                    onclick="window.location.href='{{url_for('NewArrivals.showarrivals')}}'">
                     <i class="fas fa-fw fa-table"></i>
                     <span> NewArrivals
                     </span></a>
@@ -140,17 +149,18 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <a href="#" class="btn btn-primary btn-icon-split justify-content-start" onclick="goBack()">      
+                    <a href="#" class="btn btn-primary btn-icon-split justify-content-start" onclick="goBack()">
                         <span class="icon text-white-50">
-                          <i class="fa-solid fa-arrow-left"></i>
+                            <i class="fa-solid fa-arrow-left"></i>
                         </span>
                         <span class="text">Back</span>
-                      </a>
+                    </a>
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        
 
-                        <a onclick="window.location.href='{{url_for('Auth.logout')}}'" class="btn btn-danger btn-icon-split">
+
+                        <a onclick="window.location.href='{{url_for('Auth.logout')}}'"
+                            class="btn btn-danger btn-icon-split">
                             <span class="icon text-white-50">
                                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
                             </span>
@@ -164,11 +174,11 @@
 
                 <!--  -->
                 <div class="container-fluid">
-                    
+
                     {% block content %}
-        
+
                     {% endblock content %}
-        
+
                 </div>
                 <!--  -->
 
@@ -193,7 +203,7 @@
             <i class="fas fa-angle-up"></i>
         </a>
 
-       
+
     </div>
 
 
@@ -222,26 +232,26 @@
 
     </script>
 
-        <!-- Bootstrap core JavaScript-->
-        <script src="https://stocksales.b-cdn.net/dashboard/jquery.min.js"></script>
-        <script src="https://stocksales.b-cdn.net/dashboard/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="https://stocksales.b-cdn.net/dashboard/jquery.min.js"></script>
+    <script src="https://stocksales.b-cdn.net/dashboard/bootstrap.bundle.min.js"></script>
 
-        <!-- Core plugin JavaScript-->
-        <script src="https://stocksales.b-cdn.net/dashboard/jquery.easing.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="https://stocksales.b-cdn.net/dashboard/jquery.easing.min.js"></script>
 
-        <!-- Custom scripts for all pages-->
-        <script src="https://stocksales.b-cdn.net/dashboard/sb-admin-2.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="https://stocksales.b-cdn.net/dashboard/sb-admin-2.js"></script>
 
-        <!-- Page level plugins -->
-        <script src="https://stocksales.b-cdn.net/dashboard/Chart.min.js"></script>
+    <!-- Page level plugins -->
+    <script src="https://stocksales.b-cdn.net/dashboard/Chart.min.js"></script>
 
-        <!-- Page level custom scripts -->
-        <script src="https://stocksales.b-cdn.net/dashboard/chart-area-demo.js"></script>
-        <script src="https://stocksales.b-cdn.net/dashboard/chart-pie-demo.js"></script>
-        <script>
-            function goBack() {
-              window.history.back();
-              window.onload = function() {
+    <!-- Page level custom scripts -->
+    <script src="https://stocksales.b-cdn.net/dashboard/chart-area-demo.js"></script>
+    <script src="https://stocksales.b-cdn.net/dashboard/chart-pie-demo.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+            window.onload = function () {
                 if (!localStorage.getItem('refreshed')) {
                     localStorage.setItem('refreshed', 'true');
                     window.location.reload();
@@ -249,10 +259,10 @@
                     localStorage.removeItem('refreshed');
                 }
             };
-            }
-          </script>
-        
-        
+        }
+    </script>
+
+
 </body>
 
 </html>
