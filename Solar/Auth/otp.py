@@ -48,12 +48,14 @@ def send_otp(email,otp):
     with smtplib.SMTP_SSL('smtp.gmail.com',465,context==context) as smtp:
         smtp.login(email_sender,email_password)
         smtp.sendmail(email_sender,email_reciver,em.as_string())
+            
 def SendTYmessage(email):
     email_sender=Config.Email
     email_password=Config.MAIL_KEY
     email_receiver = email
     subject = 'Thanks for contacting us'
     
+
     # HTML-formatted body
     body = """
         <h2>Stocks Sales</h2>
