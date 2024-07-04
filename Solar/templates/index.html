@@ -473,6 +473,40 @@
   </div>
 </section>
 
+
+
+<!--===== For Testing =====-->
+<div class="container">
+  <h1>New Arrivals</h1>
+  <div class="row">
+      {% for item in data_new_arrivals %}
+      <!--<div class="col-md-4">
+              <div class="card mb-4">
+                  <div class="card-body">
+                      <h5 class="card-title">{{ item.title }}</h5>
+                      <p class="card-text">{{ item.description }}</p>
+                      <a href="{{ item.video_url }}" class="btn btn-primary" target="_blank">Watch Video</a>
+                  </div>
+              
+              </div>
+          </div>-->
+      <div class="col-lg-6 align-self-center">
+        
+        <div class="ss_three_right wow fadeIn" data-wow-delay="0.1s">
+          
+          <h3>Products</h3>
+          <h1 class="card-title">{{ item.title }}</h1>
+          <p style="padding-bottom: 20px">
+            <p class="card-text">{{ item.description }}</p>
+            <a href="{{ item.video_url }}" class="btn btn-primary" target="_blank">Watch Video</a>
+          </p>
+          <a href="{{url_for('about')}}" class="ss_btn">Explore</a>
+        </div>
+      </div>
+      {% endfor %}
+  </div>
+</div>
+
 {#
 
 <hr />

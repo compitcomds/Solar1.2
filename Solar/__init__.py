@@ -65,7 +65,8 @@ def index():
     data_small_banner=list(db.smallbanner.find())
     data_big_banner=list(db.banner.find())
     data_blog=list(db.blog.find())
-    data_new_arrivals=db.NewArrivals.find()
+    data_new_arrivals=db.NewArrivals.find()[:4]
+
     form=homepageform1()
     form2=homepageform2()
     if form.validate_on_submit():
