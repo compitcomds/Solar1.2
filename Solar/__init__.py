@@ -4,7 +4,7 @@ from config import *
 from flask_wtf import CSRFProtect
 from Solar.database import db
 from Solar.form import homepageform1, homepageform2,contactform,productquery
-from Solar.Auth.otp import SendTYmessage
+from Solar.Auth.otp import SendTYmessage,SendDeatils
 from bson import ObjectId
 from flask_login import login_required,current_user
 
@@ -79,6 +79,8 @@ def index():
             'date':str(datetime.now().strftime('%Y-%m-%d'))
               }
         SendTYmessage(form.email.data)
+        message=f'someone is contacted you. {data1}'
+        SendDeatils(message=message,subject="some one contacted you")
         db.solarEnq.insert_one(data1)
         ## send thanks message
         return redirect (url_for('index'))
@@ -94,7 +96,9 @@ def index():
 
               }
         db.solarEnq.insert_one(data2)
-        SendTYmessage(form.email.data)
+        message=f'someone is contacted you. {data2}'
+        SendDeatils(message=message,subject="some one contacted you")
+
         return redirect (url_for('index'))
     return render_template('index.html',data_small_banner=data_small_banner,data_big_banner=data_big_banner,data_top_product=data_top_product,data_blog=data_blog,data_new_arrivals=data_new_arrivals,form=form,form2=form2)
 
@@ -181,6 +185,9 @@ def productdetails(prod_id):
         db.productQuery.insert_one(form_data)
         flash('Your query has been sent!','sm')
         SendTYmessage(form.email.data)
+        
+        SendDeatils(message=f'someone is contacted you {form_data}',subject="someone is contacted you")
+
         return redirect(url_for('productdetails', prod_id = prod_id))
     data1=db.Product.aggregate([ { '$sample': { 'size': 8 } } ])
     return render_template('productDetails.html',data=data,form=form,data1=data1 )
@@ -250,7 +257,10 @@ def contactus():
             'date':str(datetime.now().strftime('%Y-%m-%d'))
         }
         db.contact.insert_one(data)
+        messtr=f'some has contacting you . name- {data.name},email-{data.email},number-{data.number},subject-{data.subject},message-{data.message},date-{data.date}'
         SendTYmessage(data['email'])
+        SendDeatils(message=f"someone is contacted you. {data}",subject="someone is contacted you")
+
         return redirect(url_for('contactus'))
     return render_template('contact.html',form=form)
 

@@ -35,9 +35,9 @@ def send_otp(email,otp):
     email_sender=Config.Email
     email_password=Config.MAIL_KEY
     email_reciver=email
-    subject='testing a mail'
+    subject='Password Reset'
 
-    body="this is testing otp pls check"+" "+str(otp)
+    body="Stocks Sales Password Reset Otp"+" "+str(otp)
 
     em=EmailMessage()
     em['From']=email_sender
@@ -49,19 +49,17 @@ def send_otp(email,otp):
         smtp.login(email_sender,email_password)
         smtp.sendmail(email_sender,email_reciver,em.as_string())
             
-def SendTYmessage(email):
+def SendTYmessage(email,message=None):
     email_sender=Config.Email
     email_password=Config.MAIL_KEY
     email_receiver = email
-    subject = 'Thanks for contacting us'
+    subject = 'Response to Your Inquiry'
     
-
+    
     # HTML-formatted body
     body = """
-        <h2>Stocks Sales</h2>
-        <p>This is a testing mail for thanking the customer.</p>
-        <hr>
-        <i>Please provide a valid email format for sending messages to the customer.</i>
+        <h2>Stocks Sale</h2>
+        <p>Thank you for contacting us. We will get back to you as soon as possible.</p>
     """
 
     # Create the EmailMessage object
@@ -83,3 +81,35 @@ def SendTYmessage(email):
     with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as server:
         server.login(email_sender, email_password)
         server.send_message(em)
+
+
+def SendDeatils(message=None,subject=None):
+    email_sender=Config.Email
+    email_password=Config.MAIL_KEY
+    # email_receiver = email
+
+    
+    
+    # HTML-formatted body
+    body = message
+
+    # Create the EmailMessage object
+    em = EmailMessage()
+    em['From'] = email_sender
+    em['To'] = 'sales@stocksale.in'
+    em['Subject'] = subject
+    
+    # Set the content type to HTML
+    em.add_header('Content-Type', 'text/html')
+    
+    # Set the body of the email
+    em.set_payload(body)
+
+    # Create a secure SSL context
+    context = ssl.create_default_context()
+
+    # Establish a connection to the SMTP server and send the email
+    with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as server:
+        server.login(email_sender, email_password)
+        server.send_message(em)
+    
