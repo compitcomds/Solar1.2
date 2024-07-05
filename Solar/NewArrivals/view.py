@@ -28,7 +28,7 @@ def addArrival():
             'description':form.description.data,
         }
         db.NewArrivals.insert_one(data)
-        return render_template('showarrivals.html')
+        return redirect (url_for('NewArrivals.showarrivals'))
     return render_template('Arrivals.html',form=form)
 
 
